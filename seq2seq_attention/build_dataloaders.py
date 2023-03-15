@@ -3,18 +3,14 @@ from torchtext.data import TabularDataset
 from torchtext.data import Field, BucketIterator
 
 
-spacy_de = spacy.load("de_core_news_sm")
-spacy_en = spacy.load("en_core_web_sm")
-
-
-def tokenize_ger(text):
+def tokenize_ger(text, spacy_de=spacy.load("de_core_news_sm")):
     """
     Take german sentence and tokenize it using spacy.
     """
     return [tok.text for tok in spacy_de.tokenizer(text)]
 
 
-def tokenize_eng(text):
+def tokenize_eng(text, spacy_en=spacy.load("en_core_web_sm")):
     """
     Take english sentence and tokenize it using spacy.
     """
@@ -42,6 +38,7 @@ def build_fields(tokenizer_src=tokenize_ger, tokenizer_trg=tokenize_eng):
         pad_first=False,
     )
 
+    # Don't include lens in target batches
     trg_field = Field(
         tokenize=tokenizer_trg,
         init_token="<sos>",
@@ -49,7 +46,7 @@ def build_fields(tokenizer_src=tokenize_ger, tokenizer_trg=tokenize_eng):
         pad_token="<pad>",
         unk_token="<unk>",
         lower=True,
-        include_lengths=True,
+        include_lengths=False,
         sequential=True,
         batch_first=True,
         use_vocab=True,
