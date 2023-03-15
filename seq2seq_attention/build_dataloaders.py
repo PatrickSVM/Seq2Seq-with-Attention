@@ -71,7 +71,7 @@ def get_datasets(train_path, val_path, test_path, src_field, trg_field):
         validation=val_path,
         test=test_path,
         format="csv",
-        csv_reader_params={"delimiter": ">", "skipinitialspace":True},
+        csv_reader_params={"delimiter": ">", "skipinitialspace": True},
         fields=[("src", src_field), ("trg", trg_field)],
     )
 

@@ -1,11 +1,15 @@
 import pandas as pd
 import csv
+from seq2seq_attention.build_dataloaders import tokenize_ger
 
 
 def get_parallel_csv(path_1, path_2, new_file_path, delimiter):
     """
     Take two txts with parallel translations, create csv
     file with two cols for src and trg.
+
+    The function also replaces the delimiter char in every of
+    the sentences.
     """
     removed = 0
     with open(path_1) as src, open(path_2) as tgt:
@@ -14,12 +18,33 @@ def get_parallel_csv(path_1, path_2, new_file_path, delimiter):
                 if src_sentence.isspace() or tgt_sentence.isspace():
                     removed += 1
                     continue
-                line = f"{src_sentence.rstrip()} {delimiter} {tgt_sentence.rstrip()}"
+                line = f"{src_sentence.replace(delimiter, '').rstrip()} {delimiter} {tgt_sentence.replace(delimiter, '').rstrip()}"
                 file.write(line)
                 file.write("\n")
 
     print("File successfully created.")
     print(f"{removed} lines were removed.")
+
+
+def remove_short_sentences(
+    data_dir, min_length, new_file_path, delimiter, tokenizer=tokenize_ger
+):
+    """
+    Takes parallel csv file and removes sentence-pairs in the source
+    sentence that are shorter than min_length.
+    """
+    removed = 0
+    with open(data_dir, "r") as file:
+        with open(new_file_path, "w") as new_file:
+            for line in file:
+                src = line.split(delimiter)[0]
+                if len(tokenizer(src)) < min_length:
+                    removed += 1
+                    continue
+                new_file.write(line)
+                new_file.write("\n")
+    print("File successfully created.")
+    print(f"{removed} sentence-pairs were removed.")
 
 
 def train_test_split(file_path, sep, dir, random_seed=118):
