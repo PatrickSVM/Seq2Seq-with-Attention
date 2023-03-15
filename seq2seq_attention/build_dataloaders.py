@@ -56,7 +56,7 @@ def build_fields(tokenizer_src=tokenize_ger, tokenizer_trg=tokenize_eng):
     return src_field, trg_field
 
 
-def get_datasets(train_path, val_path, test_path, src_field, trg_field):
+def get_datasets(train_path, val_path, src_field, trg_field, test_path=None):
     """
     Load created csv files as TabularDatasets.
 
@@ -72,7 +72,11 @@ def get_datasets(train_path, val_path, test_path, src_field, trg_field):
         fields=[("src", src_field), ("trg", trg_field)],
     )
 
-    return train_set, valid_set, test_set
+    # Return two/three datasets, depending on whether test is run or not.
+    if test_path == None:
+        return train_set, valid_set, None
+    else:
+        return train_set, valid_set, test_set
 
 
 def build_vocab(src_field, trg_field, train_set, min_freq=2, max_vocab_size=32000):

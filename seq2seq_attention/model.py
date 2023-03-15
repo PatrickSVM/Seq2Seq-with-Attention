@@ -103,6 +103,13 @@ class Encoder(nn.Module):
 
 
 class Attention(nn.Module):
+    """
+    Attention mechanism for RNN-based seq2seq encoder decoder
+    networks based on the paper by Bahdanau et al.
+
+    https://arxiv.org/abs/1409.0473
+    """
+
     def __init__(
         self,
         hidden_dim_enc,
@@ -222,7 +229,6 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
         attention,
         device="cuda",
         init_token_idx=2,
-        teacher_forcing=True,
     ):
         super(Seq2Seq_Architecture_with_Att).__init__()
 
@@ -231,9 +237,8 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
         self.attention = attention
         self.decoder = decoder
         self.init_token_idx = init_token_idx
-        self.teacher_forcing = teacher_forcing
 
-    def forward(self, src_batch, trg_batch, src_len):
+    def forward(self, src_batch, trg_batch, src_len, teacher_forcing):
         # Compute entire forward pass on src batch for all steps
         # h_dec (batch_size, hidden_dim_dec): first hidden state for decoder
         # h_enc (batch_size, seq_len, hidden_dim_enc): all hidden states for each step from encoder
@@ -269,7 +274,7 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
             out_dec_all[:, step, :] = next_output
 
             # If teacher forcing, set y_bef to true last label
-            if self.teacher_forcing:
+            if teacher_forcing:
                 y_bef = trg_batch[:, step]
             # Else take predicted one
             else:
@@ -278,9 +283,7 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
         return out_dec_all
 
 
-
-
-class Seq2Seq_with_attention:
+class Seq2Seq_With_Attention:
     def __init__(
         self,
         lr,
@@ -296,10 +299,9 @@ class Seq2Seq_with_attention:
         trg_pad_idx,
         device="cuda",
         seq_beginning_token_idx=2,
-        teacher_forcing=True,
     ):
-        """ 
-        Wrapper class that holds optimizer, loss function 
+        """
+        Wrapper class that holds optimizer, loss function
         and seq2seq model with class method train_step().
         """
 
@@ -334,7 +336,6 @@ class Seq2Seq_with_attention:
             attention=attention,
             device=device,
             init_token_idx=seq_beginning_token_idx,
-            teacher_forcing=teacher_forcing,
         )
 
         # Init loss - ignore padding idxs in loss/gradient computations
@@ -343,8 +344,8 @@ class Seq2Seq_with_attention:
         # Init optimizer
         self.optimizer = torch.optim.Adam(self.seq2seq.parameters(), lr=lr)
 
-    def train_step(self, src_batch, trg_batch, src_lens):
-        """  
+    def train_step(self, src_batch, trg_batch, src_lens, teacher_forcing):
+        """
         Take one gradient step on the training batch.
         """
         src_batch = src_batch.to(self.device)
@@ -353,7 +354,10 @@ class Seq2Seq_with_attention:
         # Get decoder outputs for each token of the target sentence
         # (batch_size, trg_seq_len, vocab_size_trg)
         decoder_out = self.seq2seq(
-            src_batch=src_batch, trg_batch=trg_batch, src_len=src_lens
+            src_batch=src_batch,
+            trg_batch=trg_batch,
+            src_len=src_lens,
+            teacher_forcing=teacher_forcing,
         )
 
         # Compute loss
@@ -370,3 +374,21 @@ class Seq2Seq_with_attention:
         self.optimizer.step()
 
         return loss.items()
+
+    def set_train(self):
+        """
+        Set model in training mode.
+        """
+        self.seq2seq.train()
+
+    def set_train(self):
+        """
+        Set model in eval mode.
+        """
+        self.seq2seq.eval()
+
+    def send_to_device(self):
+        """
+        Send model to device.
+        """
+        self.seq2seq.to(self.device)
