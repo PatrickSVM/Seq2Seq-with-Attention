@@ -4,9 +4,11 @@ import torch
 
 class Encoder(nn.Module):
     def __init__(
-        self, vocab_size, emb_dim, hidden_dim_enc, hidden_dim_dec, num_layers=1, padding_idx,
+        self, vocab_size, emb_dim, hidden_dim_enc, hidden_dim_dec,padding_idx,  num_layers=1,
     ):
         super(Encoder).__init__()
+
+        self.padding_idx = padding_idx
 
         # Embedding layer (vocab_size, emb_dim)
         self.embedding = nn.Embedding(num_embeddings=vocab_size, embedding_dim=emb_dim)
@@ -65,8 +67,19 @@ class Encoder(nn.Module):
         # Note: No activation function - could use tanh
         src_summary = self.src_summary(last_hidden)
 
-        return src_summary, all_hidden_unpacked
+        # Get padding mask 
+        padding_mask = self.get_padding_mask(src)
+
+        return src_summary, all_hidden_unpacked, padding_mask
     
+    @torch.no_grad()
+    def get_padding_mask(self, src):
+        """ 
+        Compute boool mask for whether padding token or not.
+        """
+        mask = src == self.padding_idx
+        return mask
+
 
 
 
@@ -81,14 +94,11 @@ class Attention(nn.Module):
         self.allignment_layer2 = nn.Linear(hidden_dim_dec, 1, bias=False)
         
         # Init softmax to compute attention weights from energy
-        self.attention_weights = nn.Softmax(padded_src_len)
+        self.attention_weights = nn.Softmax(padded_src_len, dim=1)
         
-    def forward(self, hidden_dec, hidden_enc, src_len):
+    def forward(self, hidden_dec, hidden_enc, padding_mask):
         # hidden_dec: last hidden state from decoder (batch_size, hidden_dim_dec)
         # hidden_enc: hidden states from encoder for each seq-position (batch_size, padded_seq_len, 2*enc_hidden_dim)
-        
-        batch_size = encoder_outputs.shape[1]
-
         
         # Concat hidden state of decoder to each hidden state of the encoder-hidden-seq
         # attention_input (batch_size, padded_src_len, 2*enhidden+dec_hidden)
@@ -106,21 +116,13 @@ class Attention(nn.Module):
         energy = energy.squeeze(2)
         
         # Eliminate influence of padding tokens before softmaxing
-        mask = src_len 
-        energy[mask] = -1e10
+        # by setting their energy to tiny negative num 
+        energy[padding_mask] = -1e10
 
         # Compute attention weights for each j by softmaxing
-        self.attention_weights(energy)
+        attention_weights = self.attention_weights(energy) 
     
-        
-        return F.softmax(attention, dim = 1)
-    
-    def get_mask(true_seq_len):
-        """ 
-        Takes true sequence length (batch_size) as input and returns 
-        boolean mask (batch_size, seq_len) which is True, if the corresponging
-        token is padded, False if not. 
-        """
+        return attention_weights
 
 
 
@@ -148,4 +150,4 @@ class Decoder(nn.Module):
         self.src_summary = nn.Linear(hidden_dim_enc * 2, hidden_dim_dec)
 
     def forward(self, src, src_len):
-        """
+        pass
