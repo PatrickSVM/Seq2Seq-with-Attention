@@ -94,7 +94,7 @@ class Attention(nn.Module):
         self.allignment_layer2 = nn.Linear(hidden_dim_dec, 1, bias=False)
         
         # Init softmax to compute attention weights from energy
-        self.attention_weights = nn.Softmax(padded_src_len, dim=1)
+        self.attention_weights = nn.Softmax(dim=1)
         
     def forward(self, hidden_dec, hidden_enc, padding_mask):
         # hidden_dec: last hidden state from decoder (batch_size, hidden_dim_dec)
@@ -119,7 +119,7 @@ class Attention(nn.Module):
         # by setting their energy to tiny negative num 
         energy[padding_mask] = -1e10
 
-        # Compute attention weights for each j by softmaxing
+        # Compute attention weights (batch_size, padded_seq_len) for each j by softmaxing 
         attention_weights = self.attention_weights(energy) 
     
         return attention_weights
@@ -128,26 +128,68 @@ class Attention(nn.Module):
 
 class Decoder(nn.Module):
     def __init__(
-        self, vocab_size, emb_dim, hidden_dim_enc, hidden_dim_dec, num_layers=1
+        self, attention_model, hidden_dim_enc, hidden_dim_dec, emb_dim_trg, hidden_dim_trg, vocab_size_trg, num_layers=1
     ):
-        super(Encoder).__init__()
+        super(Decoder).__init__()
 
-        # Embedding layer (vocab_size, emb_dim)
-        self.embedding = nn.Embedding(num_embeddings=vocab_size, embedding_dim=emb_dim)
+        # Safe the target vocab size
+        self.vocab_size_trg = vocab_size_trg
 
-        # Bidirectional GRU
-        self.gru = nn.GRU(
-            input_size=emb_dim,
-            hidden_size=hidden_dim_enc,
+        # Init attention model
+        self.attention_model = attention_model
+
+        # Init target embedding layer (vocab_size, emb_dim)
+        self.embedding = nn.Embedding(num_embeddings=vocab_size_trg, embedding_dim=emb_dim_trg)
+
+        # Init unidirectional decoder GRU to get next decoder hidden state
+        # s_i = gru(s_i-1, y_i-1, c_i) 
+        self.gru = self.gru = nn.GRU(
+            input_size=hidden_dim_dec + (2*hidden_dim_enc) + emb_dim_trg,
+            hidden_size=hidden_dim_trg,
             num_layers=num_layers,
-            bidirectional=True,
+            bidirectional=False,
             batch_first=True,
             bias=True,
         )
 
-        # Linear layer to produce summary of src sentence
-        # Applied to last hidden state of each dirction
-        self.src_summary = nn.Linear(hidden_dim_enc * 2, hidden_dim_dec)
+        # Init target output layer g(s_i, y_i-1, c_i)
+        self.output_layer = nn.Linear(in_features=hidden_dim_dec + (2*hidden_dim_enc) + emb_dim_trg, out_features=vocab_size_trg)
+        self.word_prbabilities = nn.Softmax(dim=1)
 
-    def forward(self, src, src_len):
-        pass
+
+    def forward(self, s_bef, y_bef, c_i):
+        """ 
+        s_bef (batch_size, hidden_dim_dec): hidden state of decoder timestep before
+        y_bef (batch_size): target word before (predicted/gold-standard)
+        c_i (batch_size, 2*hidden_dim_enc): 
+        """
+        # Embed y_bef to (batch_size, embed_dim)
+        y_bef_embed = self.embedding(y_bef)
+
+        # Concat (s_i-1, y_i-1, c_i) to input for GRU
+        # (batch_size, hidden_dim_dec+(2*hidden_dim_enc)+emb_dim_trg)
+        gru_input = torch.cat([s_bef, y_bef, c_i], dim=1)
+
+        # Unsqueeze in dim 1 to (batch_size, 1, feat_dim)
+        gru_input = gru_input.unsqueeze(dim=1)
+
+        # Compute s_i as hidden state for next output
+        # (batch_size, hiddem_dim_trg)
+        _, s_current = self.gru(gru_input)
+
+        # Concat (s_i, y_i-1, c_i) to input for target layer
+        # (batch_size, feat_dim)
+        trg_input = torch.cat([s_current, y_bef, c_i], dim=1)
+
+        # Compute forward pass of output model - word logits
+        # (batch_size, trg_vocab_size)
+        next_output = self.output_layer(trg_input)
+
+        return next_output, s_current
+
+
+
+
+
+        
+
