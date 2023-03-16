@@ -1,10 +1,10 @@
 import torch
 
 
-def evaluate(model, eval_loader, loss_func):
+def evaluate(model, eval_loader):
 
     # Set in evaluation mode
-    model.set_eval()
+    model.seq2seq.eval()
 
     eval_loss = 0
 

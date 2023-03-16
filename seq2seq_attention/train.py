@@ -1,6 +1,6 @@
 import numpy as np
 import torch
-import tqdm
+from tqdm import tqdm
 from seq2seq_attention.evaluate import evaluate
 from seq2seq_attention.model import Seq2Seq_With_Attention
 from seq2seq_attention.build_dataloaders import (
@@ -15,18 +15,13 @@ def train_seq2seq_with_attention(
     lr,
     batch_size,
     epochs,
-    enc_vocab_size,
-    vocab_size_trg,
     enc_emb_dim,
     hidden_dim_enc,
     hidden_dim_dec,
-    padding_idx,
     num_layers_enc,
     num_layers_dec,
     emb_dim_trg,
-    trg_pad_idx,
     device,
-    seq_beginning_token_idx,
     teacher_forcing,
     train_dir,
     val_dir,
@@ -74,15 +69,21 @@ def train_seq2seq_with_attention(
             dataset=test_set, batch_size=device, device=device
         )
 
+    # Get padding/<sos> idxs
+    src_pad_idx = src_field.vocab.stoi["<pad>"]
+    trg_pad_idx = trg_field.vocab.stoi["<pad>"]
+    seq_beginning_token_idx = src_field.vocab.stoi["<sos>"]
+    assert src_field.vocab.stoi["<sos>"] == trg_field.vocab.stoi["<sos>"]
+
     # Init model wrapper class
     model = Seq2Seq_With_Attention(
         lr=lr,
-        enc_vocab_size=enc_vocab_size,
-        vocab_size_trg=vocab_size_trg,
+        enc_vocab_size=len(src_field.vocab),
+        vocab_size_trg=len(trg_field.vocab),
         enc_emb_dim=enc_emb_dim,
         hidden_dim_enc=hidden_dim_enc,
         hidden_dim_dec=hidden_dim_dec,
-        padding_idx=padding_idx,
+        padding_idx=src_pad_idx,
         num_layers_enc=num_layers_enc,
         num_layers_dec=num_layers_dec,
         emb_dim_trg=emb_dim_trg,
@@ -98,8 +99,6 @@ def train_seq2seq_with_attention(
     val_losses = np.zeros(epochs)
 
     for epoch in range(epochs):
-        # Set in training mode
-        model.set_train()
 
         # Init loss stats for epoch
         epoch_loss = 0
@@ -112,7 +111,9 @@ def train_seq2seq_with_attention(
                 disable=disable_pro_bar,
             )
         ):
-            model.set_train()
+
+            model.seq2seq.train()
+
 
             # Take one gradient step
             epoch_loss += model.train_step(

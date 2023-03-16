@@ -27,7 +27,7 @@ class Encoder(nn.Module):
         padding_idx,
         num_layers=1,
     ):
-        super(Encoder).__init__()
+        super(Encoder, self).__init__()
 
         self.padding_idx = padding_idx
 
@@ -77,7 +77,7 @@ class Encoder(nn.Module):
 
         # Transform all_hidden back to unpacked sequence
         # (batch_size, max(src_len), 2*enc_hidden_dim)
-        all_hidden_unpacked, _ = nn.utils.rnn.pad_packed_sequence(all_hidden)
+        all_hidden_unpacked, _ = nn.utils.rnn.pad_packed_sequence(all_hidden, batch_first=True)
 
         # Concatenate hidden state of the two directions on dim=1
         # (batch_size, 2*enc_hidden_dim)
@@ -115,13 +115,13 @@ class Attention(nn.Module):
         hidden_dim_enc,
         hidden_dim_dec,
     ):
-        super(Attention).__init__()
+        super(Attention, self).__init__()
 
         # Init alignment layer 1 & 2 to compute energy_ij = a(s_i-1, h_j)
-        self.allignment_layer1 = nn.Linear(
+        self.alignment_layer1 = nn.Linear(
             (hidden_dim_enc * 2) + hidden_dim_dec, hidden_dim_dec
         )
-        self.allignment_layer2 = nn.Linear(hidden_dim_dec, 1, bias=False)
+        self.alignment_layer2 = nn.Linear(hidden_dim_dec, 1, bias=False)
 
         # Init softmax to compute attention weights from energy
         self.attention_weights = nn.Softmax(dim=1)
@@ -133,17 +133,17 @@ class Attention(nn.Module):
         # Concat hidden state of decoder to each hidden state of the encoder-hidden-seq
         # attention_input (batch_size, padded_src_len, 2*enhidden+dec_hidden)
         padded_src_len = hidden_enc.shape[1]
-        hidden = hidden.unsqueeze(1).repeat(1, padded_src_len, 1)
+        hidden_dec = hidden_dec.unsqueeze(1).repeat(1, padded_src_len, 1)
         attention_input = torch.cat([hidden_enc, hidden_dec], dim=2)
 
         # Compute alignment score alpha_ij
         # Represents importance of src word j to predict trg word i
         # Computation by 2 layer FFN with tanh activation, hidden layer size quals hidden_dim_dec
-        energy = self.allignment_layer1(
+        energy = self.alignment_layer1(
             attention_input
         )  # (batch_size, padded_src_len, hidden_dim_dec)
         energy = torch.tanh(energy)
-        energy = self.allignment_layer2()  # (batch_size, padded_src_len, 1)
+        energy = self.alignment_layer2(energy)  # (batch_size, padded_src_len, 1)
 
         # Squeeze energy to (batch_size, padded_src_len)
         energy = energy.squeeze(2)
@@ -162,7 +162,7 @@ class Decoder(nn.Module):
     def __init__(
         self, hidden_dim_enc, hidden_dim_dec, emb_dim_trg, vocab_size_trg, num_layers=1
     ):
-        super(Decoder).__init__()
+        super(Decoder, self).__init__()
 
         # Safe the target vocab size
         self.vocab_size_trg = vocab_size_trg
@@ -193,14 +193,15 @@ class Decoder(nn.Module):
     def forward(self, s_bef, y_bef, c_i):
         """
         s_bef (batch_size, hidden_dim_dec): hidden state of decoder timestep before
-        y_bef (batch_size): target word before (predicted/gold-standard)
+        y_bef (batch_size, 1): target word before (predicted/gold-standard)
         c_i (batch_size, 2*hidden_dim_enc):
         """
         # Embed y_bef to (batch_size, embed_dim)
-        y_bef_embed = self.embedding(y_bef)
+        y_bef_embed = self.embedding(y_bef.squeeze())
 
         # Concat (s_i-1, y_i-1, c_i) to input for GRU
         # (batch_size, hidden_dim_dec+(2*hidden_dim_enc)+emb_dim_trg)
+        
         gru_input = torch.cat([s_bef, y_bef_embed, c_i], dim=1)
 
         # Unsqueeze in dim 1 to (batch_size, 1, feat_dim)
@@ -212,7 +213,7 @@ class Decoder(nn.Module):
 
         # Concat (s_i, y_i-1, c_i) to input for target layer
         # (batch_size, feat_dim)
-        trg_input = torch.cat([s_current, y_bef, c_i], dim=1)
+        trg_input = torch.cat([s_current.squeeze(), y_bef_embed, c_i], dim=1)
 
         # Compute forward pass of output model - word logits
         # (batch_size, trg_vocab_size)
@@ -230,13 +231,14 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
         device="cuda",
         init_token_idx=2,
     ):
-        super(Seq2Seq_Architecture_with_Att).__init__()
+        super(Seq2Seq_Architecture_with_Att, self).__init__()
 
         # Init all parts
         self.encoder = encoder
         self.attention = attention
         self.decoder = decoder
         self.init_token_idx = init_token_idx
+        self.device = device
 
     def forward(self, src_batch, trg_batch, src_len, teacher_forcing):
         # Compute entire forward pass on src batch for all steps
@@ -247,7 +249,7 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
 
         # Init first input for target sentence as <sos>-idx
         # (batch_size)
-        y_bef = torch.full(size=(src_batch.shape[0], 1), fill_value=self.init_token_idx)
+        y_bef = torch.full(size=(src_batch.shape[0], 1), fill_value=self.init_token_idx).to(self.device)
 
         # Safe sequence length of target seqs
         seq_len_trg = trg_batch.shape[1]
@@ -256,6 +258,8 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
         out_dec_all = torch.zeros(
             size=(trg_batch.shape[0], trg_batch.shape[1], self.decoder.vocab_size_trg)
         )
+        out_dec_all = out_dec_all.to(self.device)
+        
         for step in range(1, seq_len_trg):
             # Compute attention weights
             # (batch_size, padded_seq_len)
@@ -268,7 +272,10 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
             c_i = weighted_sum(H=h_enc, W=attention_weights)
 
             # Pass all inputs to decoder to get output and next hidden state
-            next_output, s_curr, _ = self.decoder(s_bef=s_curr, y_bef=y_bef, c_i=c_i)
+            next_output, s_curr = self.decoder(s_bef=s_curr, y_bef=y_bef, c_i=c_i)
+
+            # Squeeze
+            s_curr = s_curr.squeeze()
 
             # Save all outputs for this step
             out_dec_all[:, step, :] = next_output
@@ -364,6 +371,7 @@ class Seq2Seq_With_Attention:
         # Swap dim 2 and dim 1 to get
         # input=(N, C, seq_len) and target=(N, seq_len)
         decoder_out = decoder_out.permute(0, 2, 1)
+
         loss = self.loss_func(decoder_out, trg_batch)
 
         # Compute gradients
@@ -372,8 +380,8 @@ class Seq2Seq_With_Attention:
 
         # Take learning step
         self.optimizer.step()
-
-        return loss.items()
+        
+        return loss.item()
 
     def set_train(self):
         """
