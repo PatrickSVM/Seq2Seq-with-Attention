@@ -1,6 +1,6 @@
 import pandas as pd
 import csv
-from seq2seq_attention.build_dataloaders import tokenize_ger
+from seq2seq_attention.build_dataloaders import tokenize_ger, tokenize_eng
 
 
 def get_parallel_csv(path_1, path_2, new_file_path, delimiter):
@@ -26,19 +26,35 @@ def get_parallel_csv(path_1, path_2, new_file_path, delimiter):
     print(f"{removed} lines were removed.")
 
 
-def remove_short_sentences(
-    data_dir, min_length, new_file_path, delimiter, tokenizer=tokenize_ger
+def remove_sentences(
+    data_dir,
+    min_length,
+    max_length,
+    new_file_path,
+    delimiter,
+    tokenizer_src=tokenize_ger,
+    tokenizer_trg=tokenize_eng,
 ):
     """
     Takes parallel csv file and removes sentence-pairs in the source
-    sentence that are shorter than min_length.
+    sentence and target_sentence, that are shorter/longer than min/max_length.
     """
     removed = 0
     with open(data_dir, "r") as file:
         with open(new_file_path, "w") as new_file:
             for line in file:
                 src = line.split(delimiter)[0]
-                if len(tokenizer(src)) < min_length:
+                if len(tokenizer_src(src)) < min_length:
+                    removed += 1
+                    continue
+                if len(tokenizer_src(src)) > max_length:
+                    removed += 1
+                    continue
+                trg = line.split(delimiter)[1]
+                if len(tokenizer_trg(trg)) < min_length:
+                    removed += 1
+                    continue
+                if len(tokenizer_trg(trg)) > max_length:
                     removed += 1
                     continue
                 new_file.write(line)

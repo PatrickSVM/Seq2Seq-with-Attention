@@ -1,0 +1,7 @@
+wandb: Currently logged in as: patricksvm. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.14.0
+wandb: Run data is saved locally in /local/data1/pathi619/Seq2Seq-with-Attention/wandb/run-20230316_032948-mcxjmdl9
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Experiment_1
+wandb: ⭐️ View project at https://wandb.ai/patricksvm/Seq2Seq-With-Attention
+wandb: 🚀 View run at https://wandb.ai/patricksvm/Seq2Seq-With-Attention/runs/mcxjmdl9

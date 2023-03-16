@@ -1,5 +1,5 @@
 import numpy as np
-import torch
+import wandb
 from tqdm import tqdm
 from seq2seq_attention.evaluate import evaluate
 from seq2seq_attention.model import Seq2Seq_With_Attention
@@ -27,6 +27,7 @@ def train_seq2seq_with_attention(
     val_dir,
     test_dir,
     progress_bar=False,
+    use_wandb=False,
 ):
 
     """
@@ -111,9 +112,9 @@ def train_seq2seq_with_attention(
                 disable=disable_pro_bar,
             )
         ):
-
+            print(train_batch.src[0].shape)
+            print(train_batch.trg.shape)
             model.seq2seq.train()
-
 
             # Take one gradient step
             epoch_loss += model.train_step(
@@ -133,3 +134,9 @@ def train_seq2seq_with_attention(
         print(
             f"Epoch {epoch}: Train loss [{train_losses[epoch]}]   |  Val loss [{eval_loss}]"
         )
+
+        # Logging
+        if use_wandb:
+            epoch_log_res = {"Train loss": train_losses[epoch], "Val loss": eval_loss}
+
+            wandb.log(epoch_log_res)

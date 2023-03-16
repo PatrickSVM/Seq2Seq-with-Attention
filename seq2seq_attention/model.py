@@ -77,7 +77,9 @@ class Encoder(nn.Module):
 
         # Transform all_hidden back to unpacked sequence
         # (batch_size, max(src_len), 2*enc_hidden_dim)
-        all_hidden_unpacked, _ = nn.utils.rnn.pad_packed_sequence(all_hidden, batch_first=True)
+        all_hidden_unpacked, _ = nn.utils.rnn.pad_packed_sequence(
+            all_hidden, batch_first=True
+        )
 
         # Concatenate hidden state of the two directions on dim=1
         # (batch_size, 2*enc_hidden_dim)
@@ -201,7 +203,7 @@ class Decoder(nn.Module):
 
         # Concat (s_i-1, y_i-1, c_i) to input for GRU
         # (batch_size, hidden_dim_dec+(2*hidden_dim_enc)+emb_dim_trg)
-        
+
         gru_input = torch.cat([s_bef, y_bef_embed, c_i], dim=1)
 
         # Unsqueeze in dim 1 to (batch_size, 1, feat_dim)
@@ -249,7 +251,9 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
 
         # Init first input for target sentence as <sos>-idx
         # (batch_size)
-        y_bef = torch.full(size=(src_batch.shape[0], 1), fill_value=self.init_token_idx).to(self.device)
+        y_bef = torch.full(
+            size=(src_batch.shape[0], 1), fill_value=self.init_token_idx
+        ).to(self.device)
 
         # Safe sequence length of target seqs
         seq_len_trg = trg_batch.shape[1]
@@ -259,7 +263,7 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
             size=(trg_batch.shape[0], trg_batch.shape[1], self.decoder.vocab_size_trg)
         )
         out_dec_all = out_dec_all.to(self.device)
-        
+
         for step in range(1, seq_len_trg):
             # Compute attention weights
             # (batch_size, padded_seq_len)
@@ -380,7 +384,7 @@ class Seq2Seq_With_Attention:
 
         # Take learning step
         self.optimizer.step()
-        
+
         return loss.item()
 
     def set_train(self):
