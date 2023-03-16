@@ -1,6 +1,7 @@
 import numpy as np
 import wandb
 from tqdm import tqdm
+from time import time
 from seq2seq_attention.evaluate import evaluate
 from seq2seq_attention.model import Seq2Seq_With_Attention
 from seq2seq_attention.build_dataloaders import (
@@ -70,6 +71,12 @@ def train_seq2seq_with_attention(
             dataset=test_set, batch_size=device, device=device
         )
 
+    # Safe number of batches in train loader and eval points
+    perc = 0.25
+    n_batches_train = len(train_loader)
+    eval_points = [round(i*perc*n_batches_train)-1 for i in range(1,round(1/perc))]
+    eval_points.append(n_batches_train-1)
+
     # Get padding/<sos> idxs
     src_pad_idx = src_field.vocab.stoi["<pad>"]
     trg_pad_idx = trg_field.vocab.stoi["<pad>"]
@@ -96,13 +103,18 @@ def train_seq2seq_with_attention(
     # Send model to device
     model.send_to_device()
 
-    train_losses = np.zeros(epochs)
-    val_losses = np.zeros(epochs)
+    train_losses = []
+    val_losses = []
+
 
     for epoch in range(epochs):
+        
+        now = time()
 
         # Init loss stats for epoch
-        epoch_loss = 0
+        train_loss = 0
+
+        n_batches_since_eval = 0
 
         for n_batch, train_batch in enumerate(
             tqdm(
@@ -112,30 +124,50 @@ def train_seq2seq_with_attention(
                 disable=disable_pro_bar,
             )
         ):
-        
+            
+
             model.seq2seq.train()
 
             # Take one gradient step
-            epoch_loss += model.train_step(
+            train_loss += model.train_step(
                 src_batch=train_batch.src[0],
                 trg_batch=train_batch.trg,
                 src_lens=train_batch.src[1],
                 teacher_forcing=teacher_forcing,
             )
 
-        # Evaluate
-        eval_loss = evaluate(model=model, eval_loader=val_loader)
+            n_batches_since_eval += 1
 
-        # Save mean train/val loss
-        train_losses[epoch] = epoch_loss / len(train_loader)
-        val_losses[epoch] = eval_loss
+            # Calculate and safe train/eval losses at 25% of epoch
+            if n_batch in eval_points:
+                now_eval = time()
 
-        print(
-            f"Epoch {epoch}: Train loss [{train_losses[epoch]}]   |  Val loss [{eval_loss}]"
-        )
+                # Evaluate
+                eval_loss = evaluate(model=model, eval_loader=val_loader)
+                
+                print(f"Evaluation time: {(time()-now_eval)/60:.2f} minutes.")
 
-        # Logging
-        if use_wandb:
-            epoch_log_res = {"Train loss": train_losses[epoch], "Val loss": eval_loss}
+                # Save mean train/val loss
+                train_losses.append(train_loss / n_batches_since_eval)
+                val_losses.append(eval_loss)
 
-            wandb.log(epoch_log_res)
+                # Set counter to 0 again 
+                n_batches_since_eval = 0
+                train_loss = 0
+
+                
+                print(
+                    f"Epoch {epoch} [{round(n_batch*100/n_batches_train)}%]: Train loss [{train_losses[-1]}]   |  Val loss [{eval_loss}]\n"
+                )
+
+                # Logging
+                if use_wandb:
+                    epoch_log_res = {"Train loss": train_losses[-1], "Val loss": eval_loss}
+
+                    wandb.log(epoch_log_res)
+
+
+        print(f"Epoch Training time: {(time()-now)/60:.2f} minutes.")
+
+
+

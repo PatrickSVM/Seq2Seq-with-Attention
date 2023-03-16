@@ -3,12 +3,12 @@ from seq2seq_attention.train import train_seq2seq_with_attention
 
 if __name__ == "__main__":
 
-    EXP_NAME = "Experiment_2"
+    EXP_NAME = "Experiment_3"
 
-    LR = 1e-3
-    BATCH_SIZE = 50
+    LR = 5e-4
+    BATCH_SIZE = 80
     EPOCHS = 15
-    MAX_VOCAB_SIZE = 22000
+    MAX_VOCAB_SIZE = 20000
     ENC_EMB_DIM = 256
     HIDDEN_DIM_ENC = 512
     HIDDEN_DIM_DEC = 512
@@ -17,13 +17,13 @@ if __name__ == "__main__":
     EMB_DIM_TRG = 256
     DEVICE = "cuda"
     TEACHER_FORCING = True
-    TRAIN_DIR = "./data/processed/train.csv"
-    # VAL_DIR = TRAIN_DIR
-    # TEST_DIR = TRAIN_DIR
-    VAL_DIR = "./data/processed/val.csv"
-    TEST_DIR = "./data/processed/val.csv"
-    PROGRESS_BAR = False
-    USE_WANDB = True
+    TRAIN_DIR = "./data/processed/train_mini.csv"
+    VAL_DIR = TRAIN_DIR
+    TEST_DIR = TRAIN_DIR
+    #VAL_DIR = "./data/processed/val.csv"
+    #TEST_DIR = "./data/processed/val.csv"
+    PROGRESS_BAR = True
+    USE_WANDB = False
 
     # Setup hyperparams for wandb
     hyper_params = {
