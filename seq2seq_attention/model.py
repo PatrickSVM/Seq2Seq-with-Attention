@@ -290,8 +290,9 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
             # Else take predicted one
             else:
                 y_bef = torch.argmax(next_output, dim=1)
-
+    
         return out_dec_all
+    
 
 
 class Seq2Seq_With_Attention:
