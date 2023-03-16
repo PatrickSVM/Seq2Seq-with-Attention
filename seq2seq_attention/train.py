@@ -112,8 +112,7 @@ def train_seq2seq_with_attention(
                 disable=disable_pro_bar,
             )
         ):
-            print(train_batch.src[0].shape)
-            print(train_batch.trg.shape)
+        
             model.seq2seq.train()
 
             # Take one gradient step
