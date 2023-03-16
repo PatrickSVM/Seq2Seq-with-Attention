@@ -2,6 +2,7 @@ import torch.nn as nn
 import torch
 import random
 
+
 def weighted_sum(H, W):
     """
     Computes weighted sum of hidden states at each seq step
@@ -299,9 +300,8 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
 
             # Decide randomly on whether to use teacher force in this step
 
-            
             # If teacher forcing, set y_bef to true last label
-            rand_num = random.uniform(0,1)
+            rand_num = random.uniform(0, 1)
             if rand_num < teacher_forcing:
                 y_bef = trg_batch[:, step]
             # Else take predicted one

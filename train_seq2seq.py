@@ -3,12 +3,12 @@ from seq2seq_attention.train import train_seq2seq_with_attention
 
 if __name__ == "__main__":
 
-    EXP_NAME = "Experiment_4"
+    EXP_NAME = "Experiment_7"
 
     LR = 5e-4
-    BATCH_SIZE = 80
-    EPOCHS = 15
-    MAX_VOCAB_SIZE = 30000
+    BATCH_SIZE = 256
+    EPOCHS = 25
+    MAX_VOCAB_SIZE = 8000
     MIN_FREQ = 2
     ENC_EMB_DIM = 256
     HIDDEN_DIM_ENC = 512
@@ -17,15 +17,14 @@ if __name__ == "__main__":
     NUM_LAYERS_DEC = 1
     EMB_DIM_TRG = 256
     DEVICE = "cuda"
-    TEACHER_FORCING = 0.5
+    TEACHER_FORCING = 0.7
     TRAIN_DIR = "./data/processed/train.csv"
-    #VAL_DIR = TRAIN_DIR
-    #TEST_DIR = TRAIN_DIR
+    # VAL_DIR = TRAIN_DIR
+    # TEST_DIR = TRAIN_DIR
     VAL_DIR = "./data/processed/val.csv"
     TEST_DIR = "./data/processed/val.csv"
     PROGRESS_BAR = False
     USE_WANDB = True
-
 
     # Setup hyperparams for wandb
     hyper_params = {
@@ -33,7 +32,7 @@ if __name__ == "__main__":
         "batch_size": BATCH_SIZE,
         "epochs": EPOCHS,
         "max_vocab_size": MAX_VOCAB_SIZE,
-        "min_freq": MIN_FREQ, 
+        "min_freq": MIN_FREQ,
         "enc_hidden": HIDDEN_DIM_ENC,
         "dec_hidden": HIDDEN_DIM_DEC,
         "embedding_enc": ENC_EMB_DIM,
@@ -59,7 +58,7 @@ if __name__ == "__main__":
         num_layers_enc=NUM_LAYERS_ENC,
         num_layers_dec=NUM_LAYERS_DEC,
         emb_dim_trg=EMB_DIM_TRG,
-        max_vocab_size=MAX_VOCAB_SIZE, 
+        max_vocab_size=MAX_VOCAB_SIZE,
         min_freq=MIN_FREQ,
         device=DEVICE,
         teacher_forcing=TEACHER_FORCING,

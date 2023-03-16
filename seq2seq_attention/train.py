@@ -1,5 +1,7 @@
+import random
 import numpy as np
 import wandb
+import torch
 from tqdm import tqdm
 from time import time
 from seq2seq_attention.evaluate import evaluate
@@ -27,7 +29,7 @@ def train_seq2seq_with_attention(
     device,
     teacher_forcing,
     max_vocab_size,
-    min_freq, 
+    min_freq,
     train_dir,
     val_dir,
     test_dir,
@@ -41,6 +43,10 @@ def train_seq2seq_with_attention(
     attention given the provided parameters.
     """
 
+    # Set seeds
+    random.seed(118)
+    torch.manual_seed(999)
+
     disable_pro_bar = not progress_bar
 
     # Specify some examples
@@ -49,6 +55,13 @@ def train_seq2seq_with_attention(
         "Ein Mann fährt mit dem Auto.",
         "Vielen Dank, dass sie mir helfen.",
         "Wissen steht in Büchern.",
+        "Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.",
+        "Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.",
+        "Wir müssen endlich etwas unternehmen.",
+        "Leider war das nicht der Fall.",
+        "Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?",
+        "Ich glaube, auf manche Angriffe muss man nicht antworten.",
+        "Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.",
     ]
 
     # Init model saver
@@ -67,7 +80,13 @@ def train_seq2seq_with_attention(
     )
 
     # Build vocabularies
-    build_vocab(src_field=src_field, trg_field=trg_field, train_set=train_set, max_vocab_size=max_vocab_size, min_freq=min_freq)
+    build_vocab(
+        src_field=src_field,
+        trg_field=trg_field,
+        train_set=train_set,
+        max_vocab_size=max_vocab_size,
+        min_freq=min_freq,
+    )
 
     # Get data loaders
     train_loader = build_bucket_iterator(
@@ -169,6 +188,7 @@ def train_seq2seq_with_attention(
                         trg_field=trg_field,
                         max_len=30,
                     )
+                    print(f"Example #{i}:")
                     print(examples[i], " - ", translation, "\n")
 
                 now_eval = time()
