@@ -204,7 +204,7 @@ class Decoder(nn.Module):
         # Concat (s_i-1, y_i-1, c_i) to input for GRU
         # (batch_size, hidden_dim_dec+(2*hidden_dim_enc)+emb_dim_trg)
 
-        gru_input = torch.cat([s_bef, y_bef_embed, c_i], dim=1)
+        gru_input = torch.cat([s_bef.squeeze(), y_bef_embed.squeeze(), c_i.squeeze()], dim=1)
 
         # Unsqueeze in dim 1 to (batch_size, 1, feat_dim)
         gru_input = gru_input.unsqueeze(dim=1)
@@ -215,7 +215,7 @@ class Decoder(nn.Module):
 
         # Concat (s_i, y_i-1, c_i) to input for target layer
         # (batch_size, feat_dim)
-        trg_input = torch.cat([s_current.squeeze(), y_bef_embed, c_i], dim=1)
+        trg_input = torch.cat([s_current.squeeze(), y_bef_embed.squeeze(), c_i.squeeze()], dim=1)
 
         # Compute forward pass of output model - word logits
         # (batch_size, trg_vocab_size)

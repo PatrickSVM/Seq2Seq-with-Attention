@@ -3,7 +3,7 @@ from seq2seq_attention.train import train_seq2seq_with_attention
 
 if __name__ == "__main__":
 
-    EXP_NAME = "Experiment_3"
+    EXP_NAME = "Experiment_4"
 
     LR = 5e-4
     BATCH_SIZE = 80
