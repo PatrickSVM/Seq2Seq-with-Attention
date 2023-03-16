@@ -1,13 +1,7 @@
 wandb: Currently logged in as: patricksvm. Use `wandb login --relogin` to force relogin
 wandb: Tracking run with wandb version 0.14.0
-wandb: Run data is saved locally in /local/data1/pathi619/Seq2Seq-with-Attention/wandb/run-20230316_033343-6bktdui5
+wandb: Run data is saved locally in /local/data1/pathi619/Seq2Seq-with-Attention/wandb/run-20230316_190827-6gy86mf7
 wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run Experiment_2
+wandb: Syncing run Experiment_4
 wandb: ⭐️ View project at https://wandb.ai/patricksvm/Seq2Seq-With-Attention
-wandb: 🚀 View run at https://wandb.ai/patricksvm/Seq2Seq-With-Attention/runs/6bktdui5
-Epoch 0: Train loss [3.066577050794311]   |  Val loss [7.285433551362716]
-Epoch 1: Train loss [2.553848298580353]   |  Val loss [7.458622058342546]
-Epoch 2: Train loss [2.3937862295810066]   |  Val loss [7.594809419386614]
-Epoch 3: Train loss [2.3167037796208727]   |  Val loss [7.784813881579936]
-Epoch 4: Train loss [2.2696205197414603]   |  Val loss [7.92119969240033]
-Epoch 5: Train loss [2.230680444871488]   |  Val loss [7.9767882565629815]
+wandb: 🚀 View run at https://wandb.ai/patricksvm/Seq2Seq-With-Attention/runs/6gy86mf7

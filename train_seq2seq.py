@@ -8,7 +8,8 @@ if __name__ == "__main__":
     LR = 5e-4
     BATCH_SIZE = 80
     EPOCHS = 15
-    MAX_VOCAB_SIZE = 20000
+    MAX_VOCAB_SIZE = 30000
+    MIN_FREQ = 2
     ENC_EMB_DIM = 256
     HIDDEN_DIM_ENC = 512
     HIDDEN_DIM_DEC = 512
@@ -16,14 +17,15 @@ if __name__ == "__main__":
     NUM_LAYERS_DEC = 1
     EMB_DIM_TRG = 256
     DEVICE = "cuda"
-    TEACHER_FORCING = True
-    TRAIN_DIR = "./data/processed/train_mini.csv"
-    VAL_DIR = TRAIN_DIR
-    TEST_DIR = TRAIN_DIR
-    #VAL_DIR = "./data/processed/val.csv"
-    #TEST_DIR = "./data/processed/val.csv"
-    PROGRESS_BAR = True
-    USE_WANDB = False
+    TEACHER_FORCING = 0.5
+    TRAIN_DIR = "./data/processed/train.csv"
+    #VAL_DIR = TRAIN_DIR
+    #TEST_DIR = TRAIN_DIR
+    VAL_DIR = "./data/processed/val.csv"
+    TEST_DIR = "./data/processed/val.csv"
+    PROGRESS_BAR = False
+    USE_WANDB = True
+
 
     # Setup hyperparams for wandb
     hyper_params = {
@@ -31,6 +33,7 @@ if __name__ == "__main__":
         "batch_size": BATCH_SIZE,
         "epochs": EPOCHS,
         "max_vocab_size": MAX_VOCAB_SIZE,
+        "min_freq": MIN_FREQ, 
         "enc_hidden": HIDDEN_DIM_ENC,
         "dec_hidden": HIDDEN_DIM_DEC,
         "embedding_enc": ENC_EMB_DIM,
@@ -56,6 +59,8 @@ if __name__ == "__main__":
         num_layers_enc=NUM_LAYERS_ENC,
         num_layers_dec=NUM_LAYERS_DEC,
         emb_dim_trg=EMB_DIM_TRG,
+        max_vocab_size=MAX_VOCAB_SIZE, 
+        min_freq=MIN_FREQ,
         device=DEVICE,
         teacher_forcing=TEACHER_FORCING,
         train_dir=TRAIN_DIR,
@@ -63,4 +68,5 @@ if __name__ == "__main__":
         test_dir=TEST_DIR,
         progress_bar=PROGRESS_BAR,
         use_wandb=USE_WANDB,
+        exp_name=EXP_NAME,
     )

@@ -10,6 +10,8 @@ from seq2seq_attention.build_dataloaders import (
     get_datasets,
     build_vocab,
 )
+from seq2seq_attention.translate import translate_sentence
+from seq2seq_attention.model_saver import SaveBestModel
 
 
 def train_seq2seq_with_attention(
@@ -24,11 +26,14 @@ def train_seq2seq_with_attention(
     emb_dim_trg,
     device,
     teacher_forcing,
+    max_vocab_size,
+    min_freq, 
     train_dir,
     val_dir,
     test_dir,
     progress_bar=False,
     use_wandb=False,
+    exp_name="",
 ):
 
     """
@@ -37,6 +42,17 @@ def train_seq2seq_with_attention(
     """
 
     disable_pro_bar = not progress_bar
+
+    # Specify some examples
+    examples = [
+        "Das Land hat Schulden.",
+        "Ein Mann fährt mit dem Auto.",
+        "Vielen Dank, dass sie mir helfen.",
+        "Wissen steht in Büchern.",
+    ]
+
+    # Init model saver
+    model_saver = SaveBestModel(out_dir=f"{exp_name}")
 
     # Build fields for german and english
     src_field, trg_field = build_fields()
@@ -51,7 +67,7 @@ def train_seq2seq_with_attention(
     )
 
     # Build vocabularies
-    build_vocab(src_field=src_field, trg_field=trg_field, train_set=train_set)
+    build_vocab(src_field=src_field, trg_field=trg_field, train_set=train_set, max_vocab_size=max_vocab_size, min_freq=min_freq)
 
     # Get data loaders
     train_loader = build_bucket_iterator(
@@ -74,8 +90,10 @@ def train_seq2seq_with_attention(
     # Safe number of batches in train loader and eval points
     perc = 0.25
     n_batches_train = len(train_loader)
-    eval_points = [round(i*perc*n_batches_train)-1 for i in range(1,round(1/perc))]
-    eval_points.append(n_batches_train-1)
+    eval_points = [
+        round(i * perc * n_batches_train) - 1 for i in range(1, round(1 / perc))
+    ]
+    eval_points.append(n_batches_train - 1)
 
     # Get padding/<sos> idxs
     src_pad_idx = src_field.vocab.stoi["<pad>"]
@@ -106,9 +124,8 @@ def train_seq2seq_with_attention(
     train_losses = []
     val_losses = []
 
-
     for epoch in range(epochs):
-        
+
         now = time()
 
         # Init loss stats for epoch
@@ -124,7 +141,6 @@ def train_seq2seq_with_attention(
                 disable=disable_pro_bar,
             )
         ):
-            
 
             model.seq2seq.train()
 
@@ -140,34 +156,51 @@ def train_seq2seq_with_attention(
 
             # Calculate and safe train/eval losses at 25% of epoch
             if n_batch in eval_points:
+
+                # Translate example
+                for i, ex in enumerate(examples):
+                    translation, _ = translate_sentence(
+                        sentence=ex,
+                        seq2seq_model=model.seq2seq,
+                        src_field=src_field,
+                        bos=src_field.init_token,
+                        eos=src_field.eos_token,
+                        eos_idx=src_field.vocab.stoi[src_field.eos_token],
+                        trg_field=trg_field,
+                        max_len=30,
+                    )
+                    print(examples[i], " - ", translation, "\n")
+
                 now_eval = time()
 
                 # Evaluate
                 eval_loss = evaluate(model=model, eval_loader=val_loader)
-                
+
                 print(f"Evaluation time: {(time()-now_eval)/60:.2f} minutes.")
 
                 # Save mean train/val loss
                 train_losses.append(train_loss / n_batches_since_eval)
                 val_losses.append(eval_loss)
 
-                # Set counter to 0 again 
+                # Set counter to 0 again
                 n_batches_since_eval = 0
                 train_loss = 0
 
-                
                 print(
                     f"Epoch {epoch} [{round(n_batch*100/n_batches_train)}%]: Train loss [{train_losses[-1]}]   |  Val loss [{eval_loss}]\n"
                 )
+                print("##########################################\n")
 
                 # Logging
                 if use_wandb:
-                    epoch_log_res = {"Train loss": train_losses[-1], "Val loss": eval_loss}
+                    epoch_log_res = {
+                        "Train loss": train_losses[-1],
+                        "Val loss": eval_loss,
+                    }
 
                     wandb.log(epoch_log_res)
 
+                # Check for best model
+                model_saver(val_loss=eval_loss, epoch=epoch, model=model.seq2seq)
 
         print(f"Epoch Training time: {(time()-now)/60:.2f} minutes.")
-
-
-

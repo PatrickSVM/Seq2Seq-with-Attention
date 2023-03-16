@@ -21,7 +21,7 @@ def evaluate(model, eval_loader):
                 src_batch=src,
                 trg_batch=trg,
                 src_len=src_len,
-                teacher_forcing=False,
+                teacher_forcing=0,
             )
 
             # Compute loss

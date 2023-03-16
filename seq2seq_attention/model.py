@@ -1,6 +1,6 @@
 import torch.nn as nn
 import torch
-
+import random
 
 def weighted_sum(H, W):
     """
@@ -136,6 +136,7 @@ class Attention(nn.Module):
         # attention_input (batch_size, padded_src_len, 2*enhidden+dec_hidden)
         padded_src_len = hidden_enc.shape[1]
         hidden_dec = hidden_dec.unsqueeze(1).repeat(1, padded_src_len, 1)
+
         attention_input = torch.cat([hidden_enc, hidden_dec], dim=2)
 
         # Compute alignment score alpha_ij
@@ -203,8 +204,13 @@ class Decoder(nn.Module):
 
         # Concat (s_i-1, y_i-1, c_i) to input for GRU
         # (batch_size, hidden_dim_dec+(2*hidden_dim_enc)+emb_dim_trg)
+        if len(y_bef_embed.shape) == 1:
+            y_bef_embed = y_bef_embed.unsqueeze(0)
 
-        gru_input = torch.cat([s_bef.squeeze(), y_bef_embed.squeeze(), c_i.squeeze()], dim=1)
+        gru_input = torch.cat(
+            [s_bef.squeeze(dim=-1), y_bef_embed.squeeze(dim=-1), c_i.squeeze(dim=-1)],
+            dim=1,
+        )
 
         # Unsqueeze in dim 1 to (batch_size, 1, feat_dim)
         gru_input = gru_input.unsqueeze(dim=1)
@@ -215,7 +221,14 @@ class Decoder(nn.Module):
 
         # Concat (s_i, y_i-1, c_i) to input for target layer
         # (batch_size, feat_dim)
-        trg_input = torch.cat([s_current.squeeze(), y_bef_embed.squeeze(), c_i.squeeze()], dim=1)
+        trg_input = torch.cat(
+            [
+                s_current.squeeze(dim=0),
+                y_bef_embed.squeeze(dim=-1),
+                c_i.squeeze(dim=-1),
+            ],
+            dim=1,
+        )
 
         # Compute forward pass of output model - word logits
         # (batch_size, trg_vocab_size)
@@ -284,15 +297,18 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
             # Save all outputs for this step
             out_dec_all[:, step, :] = next_output
 
+            # Decide randomly on whether to use teacher force in this step
+
+            
             # If teacher forcing, set y_bef to true last label
-            if teacher_forcing:
+            rand_num = random.uniform(0,1)
+            if rand_num < teacher_forcing:
                 y_bef = trg_batch[:, step]
             # Else take predicted one
             else:
                 y_bef = torch.argmax(next_output, dim=1)
-    
+
         return out_dec_all
-    
 
 
 class Seq2Seq_With_Attention:
