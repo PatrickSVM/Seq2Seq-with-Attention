@@ -26,6 +26,7 @@ class Encoder(nn.Module):
         hidden_dim_enc,
         hidden_dim_dec,
         padding_idx,
+        dropout,
         num_layers=1,
     ):
         super(Encoder, self).__init__()
@@ -34,6 +35,9 @@ class Encoder(nn.Module):
 
         # Embedding layer (vocab_size, emb_dim)
         self.embedding = nn.Embedding(num_embeddings=vocab_size, embedding_dim=emb_dim)
+
+        # Init dropout
+        self.dropout = nn.Dropout(dropout)
 
         # Bidirectional GRU
         self.gru = nn.GRU(
@@ -61,7 +65,7 @@ class Encoder(nn.Module):
         """
 
         # (batch_size, max(src_len), emb_dim)
-        embedded_src = self.embedding(src)
+        embedded_src = self.dropout(self.embedding(src))
 
         # Pack sequences
         src_len = src_len.to("cpu")
@@ -153,7 +157,7 @@ class Attention(nn.Module):
         energy = energy.squeeze(2)
 
         # Eliminate influence of padding tokens before softmaxing
-        # by setting their energy to tiny negative num
+        # by setting their energy to huge negative num
         energy[padding_mask] = -1e10
 
         # Compute attention weights (batch_size, padded_seq_len) for each j by softmaxing
@@ -164,7 +168,7 @@ class Attention(nn.Module):
 
 class Decoder(nn.Module):
     def __init__(
-        self, hidden_dim_enc, hidden_dim_dec, emb_dim_trg, vocab_size_trg, num_layers=1
+        self, hidden_dim_enc, hidden_dim_dec, emb_dim_trg, dropout, vocab_size_trg, num_layers=1
     ):
         super(Decoder, self).__init__()
 
@@ -175,6 +179,9 @@ class Decoder(nn.Module):
         self.embedding = nn.Embedding(
             num_embeddings=vocab_size_trg, embedding_dim=emb_dim_trg
         )
+
+        # Init dropout 
+        self.dropout = nn.Dropout(dropout)
 
         # Init unidirectional decoder GRU to get next decoder hidden state
         # s_i = gru(s_i-1, y_i-1, c_i)
@@ -192,7 +199,6 @@ class Decoder(nn.Module):
             in_features=hidden_dim_dec + (2 * hidden_dim_enc) + emb_dim_trg,
             out_features=vocab_size_trg,
         )
-        self.word_prbabilities = nn.Softmax(dim=1)
 
     def forward(self, s_bef, y_bef, c_i):
         """
@@ -201,7 +207,7 @@ class Decoder(nn.Module):
         c_i (batch_size, 2*hidden_dim_enc):
         """
         # Embed y_bef to (batch_size, embed_dim)
-        y_bef_embed = self.embedding(y_bef.squeeze())
+        y_bef_embed = self.dropout(self.embedding(y_bef.squeeze()))
 
         # Concat (s_i-1, y_i-1, c_i) to input for GRU
         # (batch_size, hidden_dim_dec+(2*hidden_dim_enc)+emb_dim_trg)
@@ -281,6 +287,7 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
         for step in range(1, seq_len_trg):
             # Compute attention weights
             # (batch_size, padded_seq_len)
+            print("SCURR ", s_curr.shape, " henc ", h_enc.shape)
             attention_weights = self.attention(
                 hidden_dec=s_curr, hidden_enc=h_enc, padding_mask=padding_mask
             )
@@ -294,6 +301,10 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
 
             # Squeeze
             s_curr = s_curr.squeeze()
+
+            # Add dimension if s_curr is just one batch - error fix
+            if len(s_curr.shape) == 1:
+                s_curr = s_curr.unsqueeze(0)
 
             # Save all outputs for this step
             out_dec_all[:, step, :] = next_output
@@ -325,6 +336,7 @@ class Seq2Seq_With_Attention:
         num_layers_dec,
         emb_dim_trg,
         trg_pad_idx,
+        dropout, 
         device="cuda",
         seq_beginning_token_idx=2,
     ):
@@ -343,6 +355,7 @@ class Seq2Seq_With_Attention:
             hidden_dim_dec=hidden_dim_dec,
             padding_idx=padding_idx,
             num_layers=num_layers_enc,
+            dropout=dropout,
         )
 
         decoder = Decoder(
@@ -351,6 +364,7 @@ class Seq2Seq_With_Attention:
             emb_dim_trg=emb_dim_trg,
             vocab_size_trg=vocab_size_trg,
             num_layers=num_layers_dec,
+            dropout=dropout,
         )
 
         attention = Attention(
