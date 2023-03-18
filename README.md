@@ -40,7 +40,7 @@ For the experiments the following shared hyperparameters are used: The vocabular
 
 All experiments were run on a single NVIDIA GeForce RTX 3060 Ti.
 
-The best performing model was trained with a learning rate of 1e-4, batch size 80 and a teacher forcing ratio of 0.5. The script to replicate this model can be found [here](train_seq2seq.py)
+The best performing model was trained with a learning rate of 1e-4, batch size 80 and a teacher forcing ratio of 0.5. The script to replicate this model can be found [here](train_seq2seq.py).
 
 The overview over the validation losses can be found [here](https://wandb.ai/patricksvm/Seq2Seq-With-Attention/reports/Val-loss-23-03-18-01-33-16---VmlldzozODE4Njg3?accessToken=i0xw91jzi6pvibp96b65849xqsd09nbwmsl5epwrau89t12bz8w3g1scyvnkcgvz) on WandB together with the [training loss](https://wandb.ai/patricksvm/Seq2Seq-With-Attention/reports/Train-loss-23-03-18-01-34-45---VmlldzozODE4Njky?accessToken=rhtbp5awgobr1lyfv3uh9iid7dqc56tdiktloje9panz9fj2w710dwwbhnkfurjr).
 
