@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from seq2seq_attention.translate import translate_sentence
 
+
 def get_attention_frames(sentences, model, src_field, trg_field):
     # Translate examples
     attention_frames = []
@@ -19,13 +20,15 @@ def get_attention_frames(sentences, model, src_field, trg_field):
             max_len=30,
         )
 
-        # Cut away bos in attention since bos created 
-        attention = attention[:,1:]
+        # Cut away bos in attention since bos created
+        attention = attention[:, 1:]
 
-        # To pandas 
-        frame = pd.DataFrame(attention) 
+        # To pandas
+        frame = pd.DataFrame(attention)
         frame.columns = src_field.tokenize(sent) + ["<eos>"]
-        frame.index = trg_field.tokenize(translation.replace("<unk>", "UNK")) + ["<eos>"]
+        frame.index = trg_field.tokenize(translation.replace("<unk>", "UNK")) + [
+            "<eos>"
+        ]
 
         # Save in list
         attention_frames.append(frame.transpose())
@@ -33,14 +36,12 @@ def get_attention_frames(sentences, model, src_field, trg_field):
 
     return translations, attention_frames
 
+
 def plot_attention(attention_frame):
     sns.heatmap(attention_frame, cmap="bone", vmin=0, vmax=1)
     plt.yticks(rotation=0)
     plt.gca().xaxis.tick_top()
-    plt.gca().xaxis.set_label_position('top')
+    plt.gca().xaxis.set_label_position("top")
     plt.xticks(rotation=45)
 
     return plt.gcf()
-
-
-        

@@ -168,7 +168,13 @@ class Attention(nn.Module):
 
 class Decoder(nn.Module):
     def __init__(
-        self, hidden_dim_enc, hidden_dim_dec, emb_dim_trg, dropout, vocab_size_trg, num_layers=1
+        self,
+        hidden_dim_enc,
+        hidden_dim_dec,
+        emb_dim_trg,
+        dropout,
+        vocab_size_trg,
+        num_layers=1,
     ):
         super(Decoder, self).__init__()
 
@@ -180,7 +186,7 @@ class Decoder(nn.Module):
             num_embeddings=vocab_size_trg, embedding_dim=emb_dim_trg
         )
 
-        # Init dropout 
+        # Init dropout
         self.dropout = nn.Dropout(dropout)
 
         # Init unidirectional decoder GRU to get next decoder hidden state
@@ -336,7 +342,7 @@ class Seq2Seq_With_Attention:
         num_layers_dec,
         emb_dim_trg,
         trg_pad_idx,
-        dropout, 
+        dropout,
         device="cuda",
         seq_beginning_token_idx=2,
     ):

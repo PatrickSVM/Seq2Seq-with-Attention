@@ -23,7 +23,7 @@ if __name__ == "__main__":
     TEST_DIR = "./data/processed/val.csv"
     PROGRESS_BAR = False
     USE_WANDB = True
-    DROPOUT=0
+    DROPOUT = 0
 
     # Setup hyperparams for wandb
     hyper_params = {
@@ -36,8 +36,8 @@ if __name__ == "__main__":
         "dec_hidden": HIDDEN_DIM_DEC,
         "embedding_enc": ENC_EMB_DIM,
         "embedding_dec": ENC_EMB_DIM,
-        "dropout":DROPOUT,
-        "teacher_forcing":TEACHER_FORCING,
+        "dropout": DROPOUT,
+        "teacher_forcing": TEACHER_FORCING,
     }
 
     # Init wandb

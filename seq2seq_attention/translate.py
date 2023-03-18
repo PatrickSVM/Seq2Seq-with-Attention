@@ -57,7 +57,7 @@ def translate_sentence(
         attention_weights = seq2seq_model.attention(
             hidden_dec=s_curr, hidden_enc=h_enc, padding_mask=padding_mask
         )
-        
+
         # Compute c_i - enc hidden state summary based on attention weights
         # (batch_size, 2*hidden_dim_enc)
         c_i = weighted_sum(H=h_enc, W=attention_weights)
