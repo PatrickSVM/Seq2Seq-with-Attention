@@ -293,7 +293,6 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
         for step in range(1, seq_len_trg):
             # Compute attention weights
             # (batch_size, padded_seq_len)
-            print("SCURR ", s_curr.shape, " henc ", h_enc.shape)
             attention_weights = self.attention(
                 hidden_dec=s_curr, hidden_enc=h_enc, padding_mask=padding_mask
             )
