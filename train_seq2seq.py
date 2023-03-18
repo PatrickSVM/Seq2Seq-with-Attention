@@ -19,8 +19,6 @@ if __name__ == "__main__":
     DEVICE = "cuda"
     TEACHER_FORCING = 0.5
     TRAIN_DIR = "./data/processed/train.csv"
-    #VAL_DIR = TRAIN_DIR
-    #TEST_DIR = TRAIN_DIR
     VAL_DIR = "./data/processed/val.csv"
     TEST_DIR = "./data/processed/val.csv"
     PROGRESS_BAR = False
