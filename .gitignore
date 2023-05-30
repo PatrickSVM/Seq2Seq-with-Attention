@@ -1,5 +1,7 @@
 # Data
-/data*
+/data/processed*
+/data/unprocessed*
+/data/translation/exp4.csv
 
 wandb*
 #best_model.pt
