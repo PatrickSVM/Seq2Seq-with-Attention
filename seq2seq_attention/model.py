@@ -166,6 +166,30 @@ class Attention(nn.Module):
         return attention_weights
 
 
+class UniformAttention(nn.Module):
+    """
+    Fixed uniform attentino layer - every timestep
+    will be weighted equally.
+    """
+
+    def __init__(
+        self,
+    ):
+        super(UniformAttention, self).__init__()
+
+        # Init softmax to compute probability distribution over tensor of ones
+        self.uniform_weights = nn.Softmax(dim=1)
+
+    def forward(self, hidden_dec, hidden_enc, padding_mask):
+
+        # Compute attention weights (batch_size, padded_seq_len) for each j by softmaxing
+        attention_weights = self.uniform_weights(
+            torch.ones(size=(hidden_enc.shape[0], hidden_enc.shape[1]))
+        )
+
+        return attention_weights
+
+
 class Decoder(nn.Module):
     def __init__(
         self,
@@ -299,7 +323,7 @@ class Seq2Seq_Architecture_with_Att(nn.Module):
 
             # Compute c_i - enc hidden state summary based on attention weights
             # (batch_size, 2*hidden_dim_enc)
-            c_i = weighted_sum(H=h_enc, W=attention_weights)
+            c_i = weighted_sum(H=h_enc, W=attention_weights.to(self.device))
 
             # Pass all inputs to decoder to get output and next hidden state
             next_output, s_curr = self.decoder(s_bef=s_curr, y_bef=y_bef, c_i=c_i)
@@ -342,6 +366,7 @@ class Seq2Seq_With_Attention:
         emb_dim_trg,
         trg_pad_idx,
         dropout,
+        train_attention=True,
         device="cuda",
         seq_beginning_token_idx=2,
     ):
@@ -372,9 +397,14 @@ class Seq2Seq_With_Attention:
             dropout=dropout,
         )
 
-        attention = Attention(
-            hidden_dim_enc=hidden_dim_enc, hidden_dim_dec=hidden_dim_dec
-        )
+        if train_attention:
+            attention = Attention(
+                hidden_dim_enc=hidden_dim_enc,
+                hidden_dim_dec=hidden_dim_dec,
+            )
+
+        else:
+            attention = UniformAttention()
 
         # Init the full pipeline
         self.seq2seq = Seq2Seq_Architecture_with_Att(

@@ -9,7 +9,7 @@ def get_attention_frames(sentences, model, src_field, trg_field):
     attention_frames = []
     translations = []
     for i, sent in enumerate(sentences):
-        translation, attention = translate_sentence(
+        translation, attention, _, _ = translate_sentence(
             sentence=sent,
             seq2seq_model=model.seq2seq,
             src_field=src_field,

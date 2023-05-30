@@ -34,6 +34,7 @@ def train_seq2seq_with_attention(
     train_dir,
     val_dir,
     test_dir,
+    train_attention=True,
     progress_bar=False,
     use_wandb=False,
     exp_name="",
@@ -137,6 +138,7 @@ def train_seq2seq_with_attention(
         trg_pad_idx=trg_pad_idx,
         device=device,
         seq_beginning_token_idx=seq_beginning_token_idx,
+        train_attention=train_attention,
     )
 
     # Send model to device
@@ -180,7 +182,7 @@ def train_seq2seq_with_attention(
 
                 # Translate example
                 for i, ex in enumerate(examples):
-                    translation, _ = translate_sentence(
+                    translation, _, _, _ = translate_sentence(
                         sentence=ex,
                         seq2seq_model=model.seq2seq,
                         src_field=src_field,

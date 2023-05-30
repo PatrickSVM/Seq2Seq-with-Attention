@@ -60,7 +60,7 @@ def translate_sentence(
 
         # Compute c_i - enc hidden state summary based on attention weights
         # (batch_size, 2*hidden_dim_enc)
-        c_i = weighted_sum(H=h_enc, W=attention_weights)
+        c_i = weighted_sum(H=h_enc, W=attention_weights.to(seq2seq_model.device))
 
         # Pass all inputs to decoder to get output and next hidden state
         next_output, s_curr = seq2seq_model.decoder(s_bef=s_curr, y_bef=y_bef, c_i=c_i)
@@ -83,7 +83,7 @@ def translate_sentence(
         attention_weights_all.append(attention_weights.squeeze().cpu().tolist())
 
     # Get sentence as words
-    translation = [trg_field.vocab.itos[idx] for idx in translation]
-    translation = " ".join(translation)
+    translation_tok = [trg_field.vocab.itos[idx] for idx in translation]
+    translation = " ".join(translation_tok)
 
-    return translation, np.array(attention_weights_all)
+    return translation, np.array(attention_weights_all), src_tokenized, translation_tok

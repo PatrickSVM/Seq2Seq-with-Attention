@@ -221,8 +221,3 @@ dependencies:
   - zipp=3.11.0=py39h06a4308_0
   - zlib=1.2.13=h5eee18b_0
   - zstd=1.5.2=ha4553b6_0
-  - pip:
-    - de-core-news-sm==3.3.0
-    - en-core-web-sm==3.3.0
-    - pydantic==1.8.2
-prefix: /local/data1/pathi619/envs/Seq2Seq
