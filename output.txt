@@ -1,0 +1,1998 @@
+wandb: Currently logged in as: patricksvm. Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.15.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.14.0
+wandb: Run data is saved locally in /local/data1/pathi619/Seq2Seq-with-Attention/wandb/run-20230529_165003-3hqyuju7
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run Uniform-Attention
+wandb: ⭐️ View project at https://wandb.ai/patricksvm/Seq2Seq-With-Attention
+wandb: 🚀 View run at https://wandb.ai/patricksvm/Seq2Seq-With-Attention/runs/3hqyuju7
+Example #0:
+Das Land hat Schulden.  -  the has has been a to the the . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a <unk> , a a of a <unk> of a . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much , you very much . 
+
+Example #3:
+Wissen steht in Büchern.  -  in , , in the , in the in in in the . . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  but , can not not not , but and not not . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , thank you for your answer . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must to to to to to the to to . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the was not not the the the . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i do you have the commission to the the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that is not be to to that . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  the , should be be to be the . 
+
+Evaluation time: 0.82 minutes.
+Epoch 0 [25%]: Train loss [4.908494136409467]   |  Val loss [5.761950440001938]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the has has has a a , , , the has has a . . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a <unk> with the with the , , with the , with the with the , with the with the with the with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you , you , you , you , you for your attention . 
+
+Example #3:
+Wissen steht in Büchern.  -  the , in the , in the , in the in the in the in the . . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only , , , but , but , but , but , but , but . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , commissioner , thank you for your reply , for your reply . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must to to to , we , we must to to to , we must to to . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the was not the the the was not the the the not the the . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i do you ask the commission the commission the commission to the the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i think that is that that is not be to to be . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all all , all the should be be and , all , and all the all of all . 
+
+Evaluation time: 0.83 minutes.
+Epoch 0 [50%]: Train loss [4.8652110018161565]   |  Val loss [5.51573131781704]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the has has has a country , has has a country , has has a country . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a <unk> with a <unk> with the <unk> , with the with the , with the with the with the with the with the . . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you , thank you , you , you , you , you , you for your attention . 
+
+Example #3:
+Wissen steht in Büchern.  -  the <unk> is in the , in the , , in the , in the <unk> , in the . . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only can not only a , but , but , but , but , but , but , but . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , thank you for your <unk> , for the , for the , for the . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must to to to , we need to , , we need to be , we need to be . . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the was not not the the case , the was not , the the case of the . . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask you the commission , the commission , the commission , which i have been the the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i think that , i think that , must be be , , i think it is not to . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the should be be to be and , and all , and all the should be be . 
+
+Evaluation time: 0.82 minutes.
+Epoch 0 [75%]: Train loss [4.776196402153083]   |  Val loss [5.449074592792763]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has has a country has has a country , has has a country has has a country . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a <unk> with the <unk> with the <unk> , the with the <unk> , the with the , with the with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you , thank you , , you , many thanks to thank you for many thanks to you for many . 
+
+Example #3:
+Wissen steht in Büchern.  -  the <unk> is in the , in the , , the is a , in the <unk> , in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only can only be , but , but , but , but , but , but , but , but , but , but , but . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr <unk> , , for many thanks to thank you for the , for many thanks for many thanks for this debate . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must have to to to , we have to , , we must , , we must to to a . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the was not not the case , the the case , the the case , the was not . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i i ask the commission commission the commission , the commission , the commission has been been to the the question ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that , i believe that , i must not be , , i believe that we must not be to to . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the should be be , and the , and the , and , and should be be to , and all the problems . 
+
+Evaluation time: 0.82 minutes.
+Epoch 0 [100%]: Train loss [4.688168829982087]   |  Val loss [5.4823526267735465]
+
+##########################################
+
+Epoch Training time: 18.12 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has has a country has has . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a <unk> with the <unk> with the <unk> . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for you . 
+
+Example #3:
+Wissen steht in Büchern.  -  the is is in in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only can not , but , but , but , but , but . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , thank you for your speech , thank you for your question . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must to have to something about something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case of the . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask you the commission the commission to take the ? ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must not be to to . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all of the problems should be themselves and their own . 
+
+Evaluation time: 0.79 minutes.
+Epoch 1 [25%]: Train loss [3.7663274358830456]   |  Val loss [5.2042515660231965]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country country has has a country . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a <unk> with a <unk> , , with the <unk> , the the the <unk> . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for me to thank you for me to thank you for me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the is is in the , in the , , in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only can not be able to , but , but , but , but , and and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question , for your question . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must have to to something that we have to something something we have to . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the case was not the case , unfortunately , it was not . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission to ask the commission has been been to the ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must not be to to , , not believe that we must not be . . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all of all the problems should be be and and all the same way . 
+
+Evaluation time: 0.66 minutes.
+Epoch 1 [50%]: Train loss [4.169455184283476]   |  Val loss [5.112145450879943]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has has a country has has a country and has has has a . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a <unk> with the <unk> with the <unk> , the <unk> , the the <unk> with the <unk> . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you , thank you for me to thank you for me to help you . 
+
+Example #3:
+Wissen steht in Büchern.  -  the <unk> is is in in the , in the <unk> , in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only can only be these , , but , but , but , but , but , but and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question , thank you for your debate in the debate . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must have to to something about something we have to something we have to to something about something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the case of the case was not , , unfortunately , the case of the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission to the commission , and i have the commission to the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the must be a to to , , , , i think we must not be . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all of all problems should be be in the and and and should be be to . 
+
+Evaluation time: 0.66 minutes.
+Epoch 1 [75%]: Train loss [4.262706874464817]   |  Val loss [5.154501817136441]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has has has a country has has has a country has has has has has has has has has has has . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a <unk> <unk> is a <unk> with the <unk> of the <unk> , the the the the the with the with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you , you , , , , thank you for me to help to help you . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know is in the in the , the the the the , the is know , the is is a <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can be able to , but , but , but , but , but , but , but , but , but and . . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question , thank you for your debate , for the debate . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must have to to something about something we have to something that we have to something that we have to something about something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the case of the case was not , , unfortunately , unfortunately , the case , the case was not . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission to the commission , and , i have the commission the commission has been been made on the ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the answers to be a , i think that we must not be answers to answers to answers to answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all all problems are all the problems and the , and all , and should be be to , and and its problems . 
+
+Evaluation time: 0.67 minutes.
+Epoch 1 [100%]: Train loss [4.2929109683988225]   |  Val loss [5.2559779488815455]
+
+##########################################
+
+Epoch Training time: 16.83 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has has a country . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a is a man with the <unk> . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for me to help . 
+
+Example #3:
+Wissen steht in Büchern.  -  the is is in in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be , but , but , but , but . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , thank you for your commitment to this afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must have to have to something about something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case of the . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask you the commission to have the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must not be to answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all of the problems should be themselves and their own . 
+
+Evaluation time: 0.66 minutes.
+Epoch 2 [25%]: Train loss [3.4546849389847503]   |  Val loss [5.0081364357808855]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country country has has a . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man with a man with the man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for me , you , help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the is is in in the , in the , is <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be able to , , , , but , but and and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your commitment to afternoon , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally to something we have to something we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the case was not the case , it was not . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission to have the commission the commission has been ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must not be to answers , not , not . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all of all the problems should be be and and and should be . . 
+
+Evaluation time: 0.66 minutes.
+Epoch 2 [50%]: Train loss [3.881633807523473]   |  Val loss [4.907144617921901]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has has a country country has has has been a . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man with the <unk> man with the <unk> of the <unk> , the the <unk> . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you , you , that you will help me to help you . 
+
+Example #3:
+Wissen steht in Büchern.  -  the is is in in the , in the , , the <unk> , is <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be , , but , , but , , but , but and and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question , afternoon , afternoon , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have to be a little , something we have to to something we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the case case was not the case , the case , the case , it was not . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission , and what has been been the commission the commission has been taken ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the answers to be to be , , but i think not to be . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be in the way , and the should be itself , and and should be . . 
+
+Evaluation time: 0.66 minutes.
+Epoch 2 [75%]: Train loss [4.005336535293444]   |  Val loss [4.971964423948863]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has has a country country has has has has has a country has has has has has been . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man of man with a man with the <unk> of the <unk> , the <unk> , the the with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for me , for me , help me , help you , help me help to help you . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know is is in in the , the the know , the is is is in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can be these , , but , , but , , , but , , but , but , but and and . . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your commitment , for your commitment , afternoon , afternoon , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally to to something we have to a a to to something we have to something something we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the case was not the case case , the case , the case , unfortunately , the case case , it was not . case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission , and , , , why the commission has been been the commission , and the commission has been ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the answers to be a to be answers to the answers , i believe that we must not be answers to answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all of all the problems should be be , and the all the problems , and and should be itself , and and should be . . 
+
+Evaluation time: 0.90 minutes.
+Epoch 2 [100%]: Train loss [4.070840422772179]   |  Val loss [5.141282728820477]
+
+##########################################
+
+Epoch Training time: 16.79 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has has a country . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man with the man with the man . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the is is in in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be , , , , but , but and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must have to take a little more . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask you the commission to have the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must not be to to respond to some answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all of the should be be to the their own . 
+
+Evaluation time: 0.85 minutes.
+Epoch 3 [25%]: Train loss [3.2825110248579183]   |  Val loss [4.8624856899369435]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country has has has been a . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man of man with the man with the man with the man . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that you help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is in the in the , is is in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be able to meet these , , , but , , and and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your commitment to afternoon , for your question . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally to something about something we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the case was not the case , it was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what the commission has been informed about the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must not respond to the answers , not not be . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be in the way , and the should be itself . 
+
+Evaluation time: 0.87 minutes.
+Epoch 3 [50%]: Train loss [3.6971553113694173]   |  Val loss [4.832783362775479]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country country has has has a country has has has been . . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man with the man with the man with the man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much , for me help to help you . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know is is in in the , in the , , the <unk> is is in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can be able to meet these , , but , , but , , but , but and and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your commitment to the afternoon , afternoon , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have to be something about something we have to do something we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , it was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission , and , what has been been the commission the commission has been taken ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the must be be to respond to some answers , but i think not to be answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the the , and the should be itself . 
+
+Evaluation time: 0.86 minutes.
+Epoch 3 [75%]: Train loss [3.8473733638943473]   |  Val loss [4.913434168077865]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country country has has has has a country has has has has has been to . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man with the mann mann is a man with the man with the mann , the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much , for me , help me , help me help help you help help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know know is in the , the the is is is in the , , the <unk> is is . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can be able to meet these , , but , , , , , but , , but and and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , mr fischler , for your commitment , afternoon , afternoon , afternoon , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally to to something about something we have to finally , something we have to to something about something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the case was not the case case , it was not case , the case , the case was not . case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission , and , , why have the commission has been been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the answers of the answers to be some answers , i believe that we must not respond to answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the the , and the should be itself , and its own . 
+
+Evaluation time: 0.87 minutes.
+Epoch 3 [100%]: Train loss [3.925425312595075]   |  Val loss [5.042280327036695]
+
+##########################################
+
+Epoch Training time: 18.73 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has has a debt . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with a man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the is is in in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be , , , , but , but and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your commitment to this afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must have to do something about something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission to have the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that there are no need to respond to some answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all of the people should be themselves and their own . 
+
+Evaluation time: 0.86 minutes.
+Epoch 4 [25%]: Train loss [3.1729040506176007]   |  Val loss [4.785565730535759]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country country , has has a debt . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with a man with the man with the man . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for much help me , help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is in the knowledge - in - office of the knowledge . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be able to meet these students , but , , , but and <unk> . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question , for your question , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally to something about something we have to do something about . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , it was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what you have been informed about the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must respond to some answers to respond to the answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be in the way , and they should be . 
+
+Evaluation time: 0.86 minutes.
+Epoch 4 [50%]: Train loss [3.588550510203824]   |  Val loss [4.800464767611252]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country country has has has a debt . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man with the man with the man with the man with the <unk> . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that , help me help me help help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know is is in the in the , the <unk> is is in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can be able to meet these students , but , , , but , , but , but , but . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question , mr fischler , for your question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have to be something about something we have to do something we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , it was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission , and , what has been been the commission the commission has been been ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the must be some answers to respond to the answers , but i do not believe that we must respond to 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the the , and its own should be be . 
+
+Evaluation time: 0.86 minutes.
+Epoch 4 [75%]: Train loss [3.7410756537344603]   |  Val loss [4.853323763271548]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country country has has has has a country has has has been to debt . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with the man with a man with the man , the man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much , for me , help me help help you , help me help help help help . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know know is in the the european has been a <unk> , and the <unk> is is in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these these can can not be , , but , students , students , students , but , , but , but and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , mr <unk> , for your commitment , for your question , afternoon , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally , we have to a a to something we have to do something we have to do something about something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , the case was not the case case , it was not the case case , the case , the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , the commission , and , why have the commission has been been informed of the the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that , i believe that some answers to be made , but i think that we must not respond to some answers to respond to . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the the , and the should be itself , and its way , and its way . 
+
+Evaluation time: 0.86 minutes.
+Epoch 4 [100%]: Train loss [3.8265410287321107]   |  Val loss [5.020290036246462]
+
+##########################################
+
+Epoch Training time: 18.74 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with a man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the is is in in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be able to , , , , , , but and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question , mr president . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have to do something we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission to have the commission have been informed ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some people do not respond to respond to 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the people should be themselves and their own . 
+
+Evaluation time: 0.87 minutes.
+Epoch 5 [25%]: Train loss [3.094097386988445]   |  Val loss [4.767135259677779]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country debt , has has a debt . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with a man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for much help me , and help me help . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is a knowledge - in the knowledge . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be able to meet these students , , , , , but and <unk> . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question , for your question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally to take a long last , and we something that we must finally . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what the commission has been informed about this ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the answers to respond to some answers , not not respond to . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be solved by the and and their own . 
+
+Evaluation time: 0.86 minutes.
+Epoch 5 [50%]: Train loss [3.4943910061679735]   |  Val loss [4.725621337879379]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country has has debts has has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with the man with the man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that me that you help me help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know is is in the in the , the the <unk> is is . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can be able to meet these students , but , students , students , students , but , but . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question , mr fischler , for your question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally to take a long last , , we must finally something that we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , the case was not . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission , have the commission , and the have been informed about the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the answers to be some answers to be , , i do not think that we must respond to 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the the , and the should be itself . 
+
+Evaluation time: 0.86 minutes.
+Epoch 5 [75%]: Train loss [3.649030737609638]   |  Val loss [4.813433589800349]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country has has has has a country has has has has been debt . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with the man with a man with the man , the man with the mann . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for me help me help me , and i help me help help help you . help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know know is a in the the european , the knowledge is is , in the , , the <unk> is is . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can be able to meet these , , but , students , students , students , students , but , but and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question , mr fischler , for your question , afternoon , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally , we have to take a a to to something about something we have to do something to . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , the case , the case was not . case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission , the commission , this is the commission has been been informed of the the commission has been ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the answers of some of must be be , , i do not believe that some answers to respond to be . . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the the , and the should be itself , and its own . 
+
+Evaluation time: 0.76 minutes.
+Epoch 5 [100%]: Train loss [3.743245547468012]   |  Val loss [4.990911686195518]
+
+##########################################
+
+Epoch Training time: 18.58 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with a man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for me . 
+
+Example #3:
+Wissen steht in Büchern.  -  there is a in in in the knowledge . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can not be able to , , , , , , , but not . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question , mr president . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally something we have to do something about it . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what the commission has been informed ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some people are not respond to to respond . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be themselves and their own and . 
+
+Evaluation time: 0.71 minutes.
+Epoch 6 [25%]: Train loss [3.0206690532679823]   |  Val loss [4.73526375670478]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a debt debt . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with a man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for much help me , help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  there is a knowledge in the knowledge - in the knowledge . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can not be able to meet these students , , , , , , and and . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time , for your question . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally to take action at last . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what you have the commission have been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must respond to some answers to respond to the answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be themselves and their own and and their own . 
+
+Evaluation time: 0.73 minutes.
+Epoch 6 [50%]: Train loss [3.4197117062076625]   |  Val loss [4.690476325604151]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has a country debt , has debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with the man with the man with the <unk> . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for me that you help me help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know is is in in the <unk> , and the <unk> is is . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be able to meet these students , but , students , students , students , but and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question , mr fischler , for your question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally to take action at last , we must finally something that we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , the case was not . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission commission , do you have the the commission has been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the must be some answers to some answers , but i do not think to respond to the answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be solved by the the , and its own , and should be be . . 
+
+Evaluation time: 0.84 minutes.
+Epoch 6 [75%]: Train loss [3.5801330714099175]   |  Val loss [4.76669664202996]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has country has has a country has has has a debt debt has has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with the man with the man with a man with the man , the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for me help me help me , help me help help me help help me . help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know know know in the is a in the , and the knowledge of the is is in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only be able to meet these students , but , , , students , students , but , but and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , mr fischler , for your question , afternoon , afternoon , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally finally to take a action at last , we must finally something something to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , the case , the case was not . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , the commission , and the commission has been informed of the ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the answers must not be some answers to the answers , i believe that we must not respond to respond to 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the the , and the should be itself and and its way . 
+
+Evaluation time: 0.87 minutes.
+Epoch 6 [100%]: Train loss [3.6722686028959055]   |  Val loss [4.946428851136622]
+
+##########################################
+
+Epoch Training time: 17.74 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has debts debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with a man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  there is a in in in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can not , , , , , , , , but not . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question time , mr president . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must to do something about something we do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what you have the commission have been informed ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some of the attacks must not be answered . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be themselves and their own and . 
+
+Evaluation time: 0.87 minutes.
+Epoch 7 [25%]: Train loss [2.968182750969879]   |  Val loss [4.6851463736790535]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has debts country has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with a man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for much help me , help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  knowledge is a knowledge - in the knowledge of the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can not be able to meet with a , , , , , <unk> and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time , for your question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally to take action at last . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what you have been informed about the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must respond to some answers to some answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be solved by the and and its own . 
+
+Evaluation time: 0.87 minutes.
+Epoch 7 [50%]: Train loss [3.3716608733466553]   |  Val loss [4.676884019149925]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has country has has debts debts , has debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with the man with the with the <unk> . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help me , help me help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know is in the in the , in the , , the <unk> is is . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not meet these , , , , , students , students , students , but students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question , mr fischler , for your question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally to take action at last , , and we something we need to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , it was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , the commission , , and , what has been been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some of the answers to be answered , i do not think that we must respond to the answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the the themselves , and they should be itself . 
+
+Evaluation time: 0.87 minutes.
+Epoch 7 [75%]: Train loss [3.531314078052487]   |  Val loss [4.733734022896245]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has country has has a country country has has debts , debt has has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with the man with a man with the man with the mann . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for me help me help help me , help me help help me . help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know know know in the knowledge , the the <unk> is is in the <unk> of knowledge . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can meet these , , but students , students , students , students , students , but students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , mr fischler , for your question time , afternoon , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally have to do something about something we have to do something we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , the case , the case was not . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , the commission , have been informed of the the commission has been been ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the answers must not be some answers to the answers , but i think that we must respond to 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be resolved by the people , and they should be itself and and they should be . . 
+
+Evaluation time: 0.88 minutes.
+Epoch 7 [100%]: Train loss [3.6270287141045543]   |  Val loss [4.895775381405398]
+
+##########################################
+
+Epoch Training time: 18.97 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with the <unk> . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help . 
+
+Example #3:
+Wissen steht in Büchern.  -  there is a in in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can not , , , , , , , but not . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question time , mr president . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally something we do something about . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what has been informed about the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some people do not respond to some answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be themselves and their own and . 
+
+Evaluation time: 0.88 minutes.
+Epoch 8 [25%]: Train loss [2.9220226890503165]   |  Val loss [4.697319572545448]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has debts , has debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with a man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  knowledge is a knowledge - in the knowledge of the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can not , , , , students , students , students , but students and <unk> . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time , for your question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally take a long last , and we do something to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what has been been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must respond to some of the answers to respond to 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the and and its own . 
+
+Evaluation time: 0.87 minutes.
+Epoch 8 [50%]: Train loss [3.311931588010777]   |  Val loss [4.672067831147392]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has country has has debts debts has has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man with the man with the man with the <unk> . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for help me help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is a in the knowledge - in the , in the , of the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only be able to meet these students , but students , students , students , but students , but . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time , for your question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have to do something at last , we must finally take action . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , it was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , the commission , has been informed of the netherlands ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the must be some answers to the answers , but i do not respond to . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the the themselves , and they should be be . 
+
+Evaluation time: 0.87 minutes.
+Epoch 8 [75%]: Train loss [3.4868256920558514]   |  Val loss [4.724773085623418]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has country has has a debt , has has debts debts has has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is man with a man with a man with the man with the man . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for me help help me help help me help help me help help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know know know in the knowledge of the <unk> , the <unk> is is in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only be able to meet these , , , students , students , students , students , students , but students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question , mr fischler , for your question time in afternoon . afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally finally to take a action at last , we must finally something that we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , the case , the case was not . case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , and you have the commission have been informed of the the netherlands ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the answers must not be some answers to the answers , but i think that some answers has not been answered . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be resolved by the people , and they should be itself and and they should be . . 
+
+Evaluation time: 0.87 minutes.
+Epoch 8 [100%]: Train loss [3.5781954407269727]   |  Val loss [4.885289668474558]
+
+##########################################
+
+Epoch Training time: 18.91 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is in in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be able , , , , , , , but <unk> . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question time , mr president . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally do something about that . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what has been informed about the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some of the attacks on some answers to respond . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems themselves should be themselves and their own . 
+
+Evaluation time: 0.88 minutes.
+Epoch 9 [25%]: Train loss [2.8810727265536995]   |  Val loss [4.703844416253972]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has debts debts has has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for much help me , help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  knowledge is a knowledge - in knowledge - in the knowledge . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can meet these , , , , , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time for the question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally take a long last , and we do something we do something to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what has been been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must respond to some answers to the answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be themselves and their own and and . 
+
+Evaluation time: 0.91 minutes.
+Epoch 9 [50%]: Train loss [3.268958406296362]   |  Val loss [4.618254795108202]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has debts country has debts has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man with the man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help me help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is a knowledge - in the <unk> of the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only be able to meet these , , , , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time , for your question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally to do something about something we have to do something about it . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , has been informed of the netherlands ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i do not think that we must respond to some answers , but not to respond to the answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be resolved by the themselves , and they should be themselves . 
+
+Evaluation time: 0.87 minutes.
+Epoch 9 [75%]: Train loss [3.430120200885784]   |  Val loss [4.698916759693398]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has country has has debts country has has debts , debt has debts debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is man with a man with a man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for me help me help help me help you , help me . help me help help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is a knowledge in the knowledge - in the , the the <unk> is in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only be able to meet these , , , students , students , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , mr fischler , for your question time , afternoon , for your question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally finally , we have to do something about something we have to do something about something that we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , the case , unfortunately , was not case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , the commission has been informed of the , the netherlands have been informed ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the must respond to some answers to the answers , i believe that we must not respond to to respond to 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be resolved by the people themselves , and they should be itself and and . 
+
+Evaluation time: 0.87 minutes.
+Epoch 9 [100%]: Train loss [3.540656988708019]   |  Val loss [4.847715137702115]
+
+##########################################
+
+Epoch Training time: 18.91 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is in in the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not be able to , , , students , students , but <unk> . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time in afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally do something about . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what has been informed about the netherlands ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some of the attacks attacks must not respond to . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be themselves and their own and . 
+
+Evaluation time: 0.87 minutes.
+Epoch 10 [25%]: Train loss [2.8496231770993967]   |  Val loss [4.711605641358304]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has debts debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is <unk> with the man . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for much help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  knowledge is a knowledge - in knowledge - in the knowledge . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can not , , , , , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time for afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally finally something something about something that we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what has been been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must respond to some of the attacks , not respond to 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be themselves and their own and and they should be . 
+
+Evaluation time: 0.87 minutes.
+Epoch 10 [50%]: Train loss [3.2346592005760075]   |  Val loss [4.635147380660165]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has debts country has debts debts has has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is <unk> with the car man . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help me help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is a knowledge in the knowledge - in the , of the <unk> , in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only be able to meet with these students , students , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time , for your question time in question . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have to do something at last , we need to do something about . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , has been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some of the answers to respond to the attacks , we must not respond to some answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be solved by the people themselves and they should be themselves . 
+
+Evaluation time: 0.88 minutes.
+Epoch 10 [75%]: Train loss [3.3994571944605285]   |  Val loss [4.7312496757169935]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has has country has has a debt has has debts debts has debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is <unk> man with a man with the man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for help me help help me help help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the know know in the knowledge is in the in the , as you know , the <unk> is in in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only be able to meet these , , but students , students , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question , mr fischler , afternoon , afternoon , afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally finally a long last , we must finally take action . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , unfortunately , was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , the commission has been informed of the netherlands , have been informed ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the must respond to some answers to the the that i do not believe that we must respond to some answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be resolved by the people themselves , and they should be itself and and . 
+
+Evaluation time: 0.93 minutes.
+Epoch 10 [100%]: Train loss [3.50094602521786]   |  Val loss [4.862843065329318]
+
+##########################################
+
+Epoch Training time: 19.06 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man with man with the . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help . 
+
+Example #3:
+Wissen steht in Büchern.  -  knowledge is a in in <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can not , but , , students , students , but <unk> . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr president , for your question time , mr president . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally do something about . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , the commission has been informed of the ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some of the attacks attacks must respond to 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be themselves and their own . 
+
+Evaluation time: 0.89 minutes.
+Epoch 11 [25%]: Train loss [2.820522195192267]   |  Val loss [4.673387614061248]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has debts debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is <unk> with the car . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help me help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  knowledge is a knowledge - in knowledge - in knowledge . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only be able , , , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time for the afternoon this afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally do something about something that we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what you have been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must respond to some of the attacks , not respond to . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be themselves and their own and and they should be . . 
+
+Evaluation time: 0.89 minutes.
+Epoch 11 [50%]: Train loss [3.1937496663547322]   |  Val loss [4.636873913823433]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has debts country has debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is <unk> with the car man . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for help me help me help . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is a in the knowledge - in the , in the , in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only meet with these , , but students , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time , afternoon , in your question . afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have to do something at last , we need to take action . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , has been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some of the answers to respond to the attacks , we must not respond to to respond to the . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be resolved by the the themselves , and they should be themselves . 
+
+Evaluation time: 0.88 minutes.
+Epoch 11 [75%]: Train loss [3.372509538177895]   |  Val loss [4.708610346575953]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has country has has a debt debt , has debts has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is <unk> with the man with a man with the car man . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for me help help me help help me help help me . help me . help . 
+
+Example #3:
+Wissen steht in Büchern.  -  knowledge is a knowledge in the knowledge of the , in the knowledge of the <unk> . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only be able to meet these , , but students , students , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question , mr <unk> , for your question time in question time . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally finally a long last , we must finally take action . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case case , the case , it was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , the commission has been informed of the the commission has been informed ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the need to respond to some answers to the attacks , i believe that we must not respond to respond to the . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be resolved by the people themselves , and they should be itself and and . 
+
+Evaluation time: 0.87 minutes.
+Epoch 11 [100%]: Train loss [3.475928716141612]   |  Val loss [4.866532679436342]
+
+##########################################
+
+Epoch Training time: 18.88 minutes.
+Example #0:
+Das Land hat Schulden.  -  the country has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is <unk> with the car . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for that help . 
+
+Example #3:
+Wissen steht in Büchern.  -  knowledge is a in in in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can not , , , , students , students , but students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question hour in this afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally do something about . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , the commission has been informed ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that some of the attacks attacks must not respond to . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be themselves and their own and and they should be . 
+
+Evaluation time: 0.87 minutes.
+Epoch 12 [25%]: Train loss [2.776120890411323]   |  Val loss [4.68586739054266]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has debts debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is <unk> with the car . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you for much help me help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  knowledge is a knowledge - in knowledge . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these can can meet these , , , , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time for afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we must finally do something about it . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i ask the commission , what has been been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that we must respond to some of the attacks on the . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be themselves by the themselves and their own . 
+
+Evaluation time: 0.87 minutes.
+Epoch 12 [50%]: Train loss [3.1579439571081114]   |  Val loss [4.638675798222704]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has debts country has debts debts has debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is <unk> with the car man . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for help me help me . 
+
+Example #3:
+Wissen steht in Büchern.  -  the knowledge is a in the knowledge - in the knowledge of knowledge . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only be able to meet these , , but students , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr fischler , for your question time , for your question time in afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we need to take action at last , and we must finally take action . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , this was not the case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , the commission has been informed of the commission ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i do not think that we must respond to some answers to the attacks , i believe that we must not respond to 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be be resolved by the themselves , and they should be themselves . 
+
+Evaluation time: 0.88 minutes.
+Epoch 12 [75%]: Train loss [3.3385328335044657]   |  Val loss [4.71670914399174]
+
+##########################################
+
+Example #0:
+Das Land hat Schulden.  -  the country has country has has a debt debt has has debts debts . 
+
+Example #1:
+Ein Mann fährt mit dem Auto.  -  a man man is man with the car man with a man with the car . 
+
+Example #2:
+Vielen Dank, dass sie mir helfen.  -  thank you very much for help me help help me help help me . help me . help . 
+
+Example #3:
+Wissen steht in Büchern.  -  knowledge is a knowledge in the knowledge , as in know , the <unk> is in the . 
+
+Example #4:
+Nur Kriminelle können diese mit Leichtigkeit erfüllen, aber Studenten, Forscher und Journalisten nicht.  -  only these students can only <unk> , , but students , students , students , students , students , students , students and students . 
+
+Example #5:
+Vielen Dank, Herr Fischler, für Ihr Engagement in der Fragestunde heute Nachmittag.  -  thank you , mr , mr fischler , for your question time , for your question time in afternoon . afternoon . 
+
+Example #6:
+Wir müssen endlich etwas unternehmen.  -  we have finally have to do something about something we have to do something about something that we have to do something . 
+
+Example #7:
+Leider war das nicht der Fall.  -  unfortunately , this was not the case case , the case , unfortunately , was not case . 
+
+Example #8:
+Ich frage die Kommission, sind Sie von den Niederlanden darüber unterrichtet worden?  -  i question the commission , the commission , the commission has been informed of the netherlands , have been informed ? 
+
+Example #9:
+Ich glaube, auf manche Angriffe muss man nicht antworten.  -  i believe that the must respond to some answers to the attacks , i believe that we must not respond to some answers . 
+
+Example #10:
+Alle Probleme sollten vom Volk selbst gelöst werden, und zwar auf seine Weise.  -  all the problems should be resolved by the people themselves , and they should be itself and and . 
+
+Evaluation time: 0.66 minutes.
+Epoch 12 [100%]: Train loss [3.453119042209639]   |  Val loss [4.840716696572754]
+
+##########################################
+
+Epoch Training time: 18.25 minutes.
