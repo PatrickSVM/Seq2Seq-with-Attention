@@ -54,7 +54,7 @@ The overview over the validation losses can be found [here](https://wandb.ai/pat
 <p align="center">
     Attention weights of an example translation
     
-The plot shows the attention weights and word alignments for the German example sentence "Natürlich sind wir mit der gegenwär-
+The plot shows the attention weights and word alignments for the German example sentence "Natürlich sind wir mit der gegenwär
 tigen Situation in China nicht zufrieden" with model translation "Of course, we are not satisfied with the
 current situation in China.".
 
