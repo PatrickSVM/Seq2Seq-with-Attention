@@ -48,7 +48,7 @@ The overview over the validation losses can be found [here](https://wandb.ai/pat
 ## Results
 
 <p align="center">
-<img src="report/Sent2-attention.png" align="center" width="65%" height="65%">
+<img src="report/NewAttention2.png" align="center" width="65%" height="65%">
 </p>
 
 <p align="center">
